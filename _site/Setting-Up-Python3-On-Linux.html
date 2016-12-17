@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Tutorial: Setting Up Virtualenv and Virtualenvwrapper on Linux for Python 3.x - Age of Info</title>
+
+
+
+
+<meta name="description" content="Since I last posted in November, I’ve been doing a lot of work with Python on a few projects of mine. As a result, I have created my own work-flow for Python development.That being said, one of the first things necessary for proper Python development is familiarizing yourself with and configuring Python virtual environments and how to manage them using virtualenvwrapper. Consequently, I wanted to write a short and quick guide to a properly configured Python Virtual Environment for Python 3.5+ on a Debian based system for other programmers new to Python and or Linux.">
+
+
+
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Age of Info">
+<meta property="og:title" content="Tutorial: Setting Up Virtualenv and Virtualenvwrapper on Linux for Python 3.x">
+
+
+  <link rel="canonical" href="http://ageof.info/Setting-Up-Python3-On-Linux">
+  <meta property="og:url" content="http://ageof.info/Setting-Up-Python3-On-Linux">
+
+
+
+  <meta property="og:description" content="Since I last posted in November, I’ve been doing a lot of work with Python on a few projects of mine. As a result, I have created my own work-flow for Python development.That being said, one of the first things necessary for proper Python development is familiarizing yourself with and configuring Python virtual environments and how to manage them using virtualenvwrapper. Consequently, I wanted to write a short and quick guide to a properly configured Python Virtual Environment for Python 3.5+ on a Debian based system for other programmers new to Python and or Linux.">
+
+
+
+  <meta name="twitter:site" content="@eliasjmgarcia">
+  <meta name="twitter:title" content="Tutorial: Setting Up Virtualenv and Virtualenvwrapper on Linux for Python 3.x">
+  <meta name="twitter:description" content="Since I last posted in November, I’ve been doing a lot of work with Python on a few projects of mine. As a result, I have created my own work-flow for Python development.That being said, one of the first things necessary for proper Python development is familiarizing yourself with and configuring Python virtual environments and how to manage them using virtualenvwrapper. Consequently, I wanted to write a short and quick guide to a properly configured Python Virtual Environment for Python 3.5+ on a Debian based system for other programmers new to Python and or Linux.">
+  <meta name="twitter:url" content="http://ageof.info/Setting-Up-Python3-On-Linux">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2016-11-06T14:42:06-06:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Elias Garcia",
+      "url" : "http://ageof.info",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://ageof.info/feed.xml" type="application/atom+xml" rel="alternate" title="Age of Info Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://ageof.info/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://ageof.info/">Age of Info</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://ageof.info/about/">About</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://ageof.info/categories/">Categories</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+      	<img src="http://ageof.info/assets/images/bio-photo.jpg#%20path%20of%20avatar%20image,%20e.g.%20%22/assets/images/bio-photo.jpg%22" class="author__avatar" alt="Elias Garcia">
+      
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name">Elias Garcia</h3>
+    <p class="author__bio">cs and economics student, interested in data analysis and institutions</p>
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Truman State</li>
+      
+      
+      
+        <li><a href="mailto:elias.jm.garcia@pressmail.ch"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+      
+      
+      
+        <li><a href="https://twitter.com/eliasjmgarcia"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+      
+      
+      
+      
+        <li><a href="https://www.linkedin.com/in/eliasjmgarcia"><i class="fa fa-fw fa-linkedin-square" aria-hidden="true"></i> LinkedIn</a></li>
+      
+      
+      
+      
+      
+      
+        <li><a href="https://github.com/ejmg"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Tutorial: Setting Up Virtualenv and Virtualenvwrapper on Linux for Python 3.x">
+    <meta itemprop="description" content="Since I last posted in November, I’ve been doing a lot of work with Python on a few projects of mine. As a result, I have created my own work-flow for Python development.That being said, one of the first things necessary for proper Python development is familiarizing yourself with and configuring Python virtual environments and how to manage them using virtualenvwrapper. Consequently, I wanted to write a short and quick guide to a properly configured Python Virtual Environment for Python 3.5+ on a Debian based system for other programmers new to Python and or Linux.">
+    <meta itemprop="datePublished" content="November 06, 2016">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Tutorial: Setting Up Virtualenv and Virtualenvwrapper on Linux for Python 3.x
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+  
+	  7 minute read
+	
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p>Since I last posted in November, I’ve been doing a lot of work with Python on a few projects of mine. As a result, I have created my own work-flow for Python development.
+That being said, one of the first things necessary for proper Python development is familiarizing yourself with and configuring Python <em>virtual environments</em> and how to manage them using <em>virtualenvwrapper.</em> Consequently, I wanted to write a short and quick guide to a properly configured Python Virtual Environment for Python 3.5+ on a Debian based system for other programmers new to Python and or Linux.</p>
+
+<p>For the full prerequisites to do this tutorial, look at the appendix at the end of this blog post. Finally, this blog post wouldn’t be possible with the tutorials I read during the course of my setup process when starting Python development, notably <a href="https://realpython.com/blog/python/python-virtual-environments-a-primer/">Real Python’s primer on Virtual Environments</a>.</p>
+
+<h1 id="python-virtual-environments">Python Virtual Environments</h1>
+
+<h2 id="why">Why?</h2>
+
+<p>Let’s say you want to build a twitter bot and you want to use Tweepy, a common wrapper module for interacting with Twitter’s API. Without using virtual environments, installing tweepy would simply require the following command:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo -H pip3 install tweepy
+</code></pre>
+</div>
+<p>What this command does is the following:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">sudo</code> gives root privileges to the command so that it is installed system wide.</li>
+  <li><code class="highlighter-rouge">-H</code> sets the path for $HOME to that of root.</li>
+  <li><code class="highlighter-rouge">pip3 install tweepy</code> queries the Python Package Index for the Tweepy module.</li>
+</ol>
+
+<p>You can check that tweepy exists by entering the python3 terminal by importing the module as so:</p>
+
+<p><img src="http://ageof.info/assets/images/posts/2016-12-15/import-tweepy.png" alt="import-tweepy" /></p>
+
+<p>Now why would installing Tweepy system wide be a problem? Well let’s start with where Tweepy is installed, which for Python 3.5 is something like <code class="highlighter-rouge">/usr/lib/python3.5/dist-packages/tweepy/</code>. Now there’s no problem with this so long as you use the same version of Tweepy across every twitter bot you ever make, but what happens when 2 years later you find yourself with 4 different bots running on four different versions of Tweepy? How do you tell Python 3.5 to use Tweepy 1.1 for bot 1, 1.2 for bot 2, 1.3 for bot 3, and 1.4 for bot 4?</p>
+
+<p>The answer is you <em>really can’t.</em> This is where Python Virtual Environments come into play.</p>
+
+<h3 id="dependency-management-is-a-pain-and-security-is-important">Dependency Management is a Pain and Security is Important</h3>
+
+<p>Virtual environments allow you to keep project specific installations of Python and the modules it uses. This is considered a best practice with software development as it ensures your dependencies are kept clean and organized for each project so that maintaining a given project through its life cycle remains a streamlined process. This practice is also known as “sandboxing” from a security standpoint, as you isolate packages to a local directory/environment rather than a system install. You especially want to do this with unverified modules. You can probably install well known/trusted packages system wide without worrying about security (but again, still shouldn’t because of dependencies), but you definitely don’t want to with ones that haven’t been code reviewed by a large community of developers. In other words, why would you give sudo access to a module that you don’t trust/know? When someone is executed with sudo privileges, you risk escalating an exploit to system wide access which means your entire machine is compromised, yikes!</p>
+
+<h2 id="installing-virtual-environments-with-virtualenv">Installing Virtual Environments with Virtualenv</h2>
+
+<p>Give the following command with pip3 in term:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pip3 install virtualenv
+</code></pre>
+</div>
+
+<p>Now you can create a virtualenv with the following command:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>virtualenv <span class="nb">test</span>
+</code></pre>
+</div>
+
+<p>The above command does the following:</p>
+
+<p>1) It created a subdirectory in your working directory with the name ‘test’
+2) In this directory, it created a symbolic link to your system’s binary of Python3 but treats it as a local installation within this directory
+3) When you now install any modules while using the ‘test’ virtual environment, they’ll be installed under <code class="highlighter-rouge">test/lib/&lt;python_version&gt;/site-packages</code></p>
+
+<p>Let’s test this. Activate your virtualenv with <code class="highlighter-rouge">source test/bin/activate</code>, and you will see your working line in term change to <code class="highlighter-rouge">(test) &lt;user&gt;@&lt;machine&gt;:&lt;working directory&gt;</code> like so:</p>
+
+<p><img src="http://ageof.info/assets/images/posts/2016-12-15/test-virtualenv.png" alt="virtualenv" /></p>
+
+<p>‘(test)’ tells you that you are currently working within the ‘test’ virtualenv! Congrats! Now see what version of Python3 you are using with the following:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>which python3
+</code></pre>
+</div>
+
+<p>Because of how virtual environments work, you will see that the Python3 executable used is in <code class="highlighter-rouge">home/&lt;user_name/test/bin/python3</code>, rather than the system wide installation, <code class="highlighter-rouge">/usr/bin/python3</code>. Now let’s do another example: try importing the Tweepy module that we imported earlier in Python 3 from within terminal. You’ll notice that Python will tell you no such module exists because virtualenv only looks from within its install directory.</p>
+
+<p><img src="http://ageof.info/assets/images/posts/2016-12-15/tweepy-not-found.png" alt="tweepy-not-found" /></p>
+
+<p>Remember above how it did work? When you work within a virtual environment, you are working with the locally installed packages of that specific virtual environment. <strong>This is why virtualenv is such a powerful tool.</strong> It allows you to keep your projects, and its dependencies, organized and separate from one another.</p>
+
+<p>To get out of your virtualenv, simply execute the command <code class="highlighter-rouge">deactivate</code> from within terminal. Go ahead and delete it as well with the following command (be careful to execute it as exactly from within the directory you had created ‘test’ in):</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo rm -rf <span class="nb">test</span>
+</code></pre>
+</div>
+<p>While we are at it, let’s go ahead and uninstall Tweepy since such a package doesn’t need to be accessible system wide:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo -H pip3 uninstall tweepy
+</code></pre>
+</div>
+
+<h2 id="organizing-virtualenv-with-virtualenvwrapper">Organizing Virtualenv with Virtualenvwrapper</h2>
+
+<p>Already, you have a very powerful tool for programming in Python. However, notice the command for activating your virtualenv from earlier, <code class="highlighter-rouge">source path/to/bin/activate</code>. This seems a bit burdensome, doesn’t it? Also, look at how we had to delete it, <code class="highlighter-rouge">sudo rm -rf test</code> is a sudo level command that has to pass both the recursive and force flags to rm which is a pain and a little dangerous! Furthermore, imagine what happens once you have 5, 15, or 30 different environments - you will have to remember the sourcing path for each one of these, which becomes one extra thing you have to keep track of. This is where Virtualenvwrapper enters: as its name suggests, virtualenvwrapper acts as a wrapper for managing all of your virtual environments that you install, along with making the process of entering, creating, and deleting them much easier.</p>
+
+<p>Install (system wide) with the following command:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo -H pip3 install virtualenvwrapper
+</code></pre>
+</div>
+
+<p>After this, we have to finish the install by running the virtualenvwrapper.sh script which should be installed under <code class="highlighter-rouge">/usr/local/bin/virtualenvwrapper.sh</code> but to be sure, run the following to check:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>which virtualenvwrapper.sh
+</code></pre>
+</div>
+
+<p>Using the directory given, insert at the bottom of your <code class="highlighter-rouge">.bashrc</code> in your user directory the following four lines of code:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">export </span><span class="nv">WORKON_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/.virtualenvs
+<span class="nb">export </span><span class="nv">PROJECT_HOME</span><span class="o">=</span><span class="nv">$HOME</span>/projects
+<span class="nb">export </span><span class="nv">VIRTUALENVWRAPPER_PYTHON</span><span class="o">=</span>/usr/bin/python3 <span class="c">#this would change if you were doing python2 instead or the non-default python3 (3.4, 3.6, etc)</span>
+<span class="nb">source</span> /path/to/your/virtualenvwrapper.sh
+</code></pre>
+</div>
+
+<p>These lines do is the following, in order:</p>
+<ol>
+  <li>set <code class="highlighter-rouge">.virtualenvs</code>, the directory where all your new virtualenvs will be organized, to the base of your home directory.</li>
+  <li>set the default directory for your projects at the base of your home directory</li>
+  <li>tells your system to use Python3 instead of Python2 for running virtualenvwrapper.sh, which does not exist as a module for Python2 (assuming you haven’t installed it like we have installed it for Python3)</li>
+  <li>sources the script <code class="highlighter-rouge">virtualenvwrapper.sh</code> which will be needed every time you create a new virtual environment with virtualenvwrapper.</li>
+</ol>
+
+<p>Now source your <code class="highlighter-rouge">.bashrc</code> so the above changes are loaded by typing the following command in terminal:</p>
+
+<p><code class="highlighter-rouge">source ~/.bashrc</code></p>
+
+<p>You should see something like the following:</p>
+
+<p><img src="http://ageof.info/assets/images/posts/2016-12-15/virtualenvwrapper-install.png" alt="virtualenvwrapper-install" /></p>
+
+<p>Congrats! Now under <code class="highlighter-rouge">home/&lt;user_name&gt;/</code>, you will see the directory <code class="highlighter-rouge">.virtualenvs/</code> which will contain every virtualenv you manage with virtualenvwrapper! Go ahead and create one with the following command:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>mkvirtualenv <span class="nb">test</span>
+</code></pre>
+</div>
+
+<p>You’ll automatically be entered into your new virtualenv and from here, it acts no differently had you done it with only the <code class="highlighter-rouge">virtualenv test</code> command from earlier. But unlike before, you can now use <code class="highlighter-rouge">rmvirtualenv &lt;virtualenv&gt;</code> to delete a virtualenv in one simple command and <code class="highlighter-rouge">workon &lt;virtualenv&gt;</code> to switch to your virtualenv of choice! Even if you can’t remember the names of your virtual environments, just entering <code class="highlighter-rouge">workon</code> and hitting tab will then show all existing virtual environments so far. This behavior is mirrored with the other commands of virtualenvwrapper.</p>
+
+<p>And with that, you are done! Congrats on setting up virtualenv and virtualenvwrapper on Linux, you are now on your way to being a Python ninja!</p>
+
+<h1 id="appendix-prerequisites">Appendix: Prerequisites</h1>
+
+<ol>
+  <li>
+    <p>Ubuntu 16.04 LTS
+This guide will assume you are running Ubuntu 16.04, the most recent version of the Ubuntu Linux distribution. That said, the instructions found here can easily be applied to Ubuntu derived distributions, Debian Wheezy+, and other Debian derivatives with some tweaking.</p>
+  </li>
+  <li>
+    <p>Python 3.4+
+While Ubuntu 16.04 comes pre-installed with Python 3.5, the instructions below apply to any version from 3.4 on.</p>
+  </li>
+  <li>
+    <p>pip3 for Python 3
+pip (Pip Installs Packages) is a module management system for Python. If you do not have pip3, it can be installed with the following command for Ubuntu 16.04:</p>
+
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install python3-pip
+</code></pre>
+    </div>
+
+    <p>for 14.04:</p>
+
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt-get install python3-pip3
+</code></pre>
+    </div>
+
+    <p>After installing, make sure to update pip with:</p>
+
+    <p><code class="highlighter-rouge">pip3 install --upgrade pip</code></p>
+
+    <p>To update the system wide (root) version of pip:</p>
+
+    <p><code class="highlighter-rouge">sudo -H pip3 install --upgrade pip</code></p>
+
+    <p><code class="highlighter-rouge">pip3 --version</code> should now give you the most recent version (as of this writing, that’s 9.0.1).</p>
+  </li>
+</ol>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://ageof.info/tags/" class="page__taxonomy-item" rel="tag"></a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://ageof.info/tags/tutorial" class="page__taxonomy-item" rel="tag">tutorial</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://ageof.info/tags/" class="page__taxonomy-item" rel="tag"></a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://ageof.info/tags/" class="page__taxonomy-item" rel="tag"></a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://ageof.info/tags/" class="page__taxonomy-item" rel="tag"></a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://ageof.info/categories/" class="page__taxonomy-item" rel="tag"></a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://ageof.info/categories/" class="page__taxonomy-item" rel="tag"></a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://ageof.info/categories/" class="page__taxonomy-item" rel="tag"></a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://ageof.info/categories/" class="page__taxonomy-item" rel="tag"></a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://ageof.info/categories/programming" class="page__taxonomy-item" rel="tag">Programming</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-11-06T14:42:06-06:00">November 06, 2016</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=eliasjmgarcia&text=Tutorial: Setting Up Virtualenv and Virtualenvwrapper on Linux for Python 3.x http://ageof.info/Setting-Up-Python3-On-Linux" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://ageof.info/Setting-Up-Python3-On-Linux" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://ageof.info/Setting-Up-Python3-On-Linux" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://ageof.info/Setting-Up-Python3-On-Linux" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://ageof.info/New-Theme-Finalized-Migration" class="pagination--pager" title="New Theme and Done Moving
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/eliasjmgarcia"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/ejmg"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://ageof.info/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2016 Elias Garcia. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="http://ageof.info/assets/js/main.min.js"></script>
+
+
+
+
+
+  </body>
+</html>

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://ageof.info/Setting-Up-Python3-On-Linux</loc>
+<lastmod>2016-11-06T14:42:06-06:00</lastmod>
+</url>
+<url>
 <loc>http://ageof.info/New-Theme-Finalized-Migration</loc>
 <lastmod>2016-11-06T14:42:06-06:00</lastmod>
 </url>
@@ -1085,6 +1089,9 @@
 <loc>http://ageof.info/tags/jekyll/</loc>
 </url>
 <url>
+<loc>http://ageof.info/tags/tutorial-ubuntu-install/</loc>
+</url>
+<url>
 <loc>http://ageof.info/categories/politics/</loc>
 </url>
 <url>
@@ -1179,6 +1186,9 @@
 </url>
 <url>
 <loc>http://ageof.info/categories/update/</loc>
+</url>
+<url>
+<loc>http://ageof.info/categories/programming-linux-python/</loc>
 </url>
 <url>
 <loc>http://ageof.info/page2/</loc>

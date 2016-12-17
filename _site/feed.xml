@@ -1,4 +1,172 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://ageof.info/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.0">Jekyll</generator><link href="http://ageof.info/feed.xml" rel="self" type="application/atom+xml" /><link href="http://ageof.info/" rel="alternate" type="text/html" /><updated>2016-11-06T20:00:45-06:00</updated><id>http://ageof.info//</id><title type="html">Age of Info</title><subtitle>the professional blog of Elias Garcia for a Brave New World</subtitle><author><name>Elias Garcia</name><email>elias.jm.garcia@pressmail.ch</email></author><entry><title type="html">New Theme and Done Moving</title><link href="http://ageof.info/New-Theme-Finalized-Migration" rel="alternate" type="text/html" title="New Theme and Done Moving" /><published>2016-11-06T14:42:06-06:00</published><updated>2016-11-06T14:42:06-06:00</updated><id>http://ageof.info/New-Theme-Finalized-Migration</id><content type="html" xml:base="http://ageof.info/New-Theme-Finalized-Migration">&lt;p&gt;Alright, knocking on wood, but I do believe I am finished migrating my old blog
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://ageof.info/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="http://ageof.info/feed.xml" rel="self" type="application/atom+xml" /><link href="http://ageof.info/" rel="alternate" type="text/html" /><updated>2016-12-16T19:22:22-06:00</updated><id>http://ageof.info//</id><title type="html">Age of Info</title><subtitle>the professional blog of Elias Garcia for a Brave New World</subtitle><author><name>Elias Garcia</name><email>elias.jm.garcia@pressmail.ch</email></author><entry><title type="html">Tutorial: Setting Up Virtualenv and Virtualenvwrapper on Linux for Python 3.x</title><link href="http://ageof.info/Setting-Up-Python3-On-Linux" rel="alternate" type="text/html" title="Tutorial: Setting Up Virtualenv and Virtualenvwrapper on Linux for Python 3.x" /><published>2016-11-06T14:42:06-06:00</published><updated>2016-11-06T14:42:06-06:00</updated><id>http://ageof.info/Setting-Up-Python3-On-Linux</id><content type="html" xml:base="http://ageof.info/Setting-Up-Python3-On-Linux">&lt;p&gt;Since I last posted in November, I’ve been doing a lot of work with Python on a few projects of mine. As a result, I have created my own work-flow for Python development.
+That being said, one of the first things necessary for proper Python development is familiarizing yourself with and configuring Python &lt;em&gt;virtual environments&lt;/em&gt; and how to manage them using &lt;em&gt;virtualenvwrapper.&lt;/em&gt; Consequently, I wanted to write a short and quick guide to a properly configured Python Virtual Environment for Python 3.5+ on a Debian based system for other programmers new to Python and or Linux.&lt;/p&gt;
+
+&lt;p&gt;For the full prerequisites to do this tutorial, look at the appendix at the end of this blog post. Finally, this blog post wouldn’t be possible with the tutorials I read during the course of my setup process when starting Python development, notably &lt;a href=&quot;https://realpython.com/blog/python/python-virtual-environments-a-primer/&quot;&gt;Real Python’s primer on Virtual Environments&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1 id=&quot;python-virtual-environments&quot;&gt;Python Virtual Environments&lt;/h1&gt;
+
+&lt;h2 id=&quot;why&quot;&gt;Why?&lt;/h2&gt;
+
+&lt;p&gt;Let’s say you want to build a twitter bot and you want to use Tweepy, a common wrapper module for interacting with Twitter’s API. Without using virtual environments, installing tweepy would simply require the following command:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -H pip3 install tweepy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;What this command does is the following:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt; gives root privileges to the command so that it is installed system wide.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;-H&lt;/code&gt; sets the path for $HOME to that of root.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pip3 install tweepy&lt;/code&gt; queries the Python Package Index for the Tweepy module.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;You can check that tweepy exists by entering the python3 terminal by importing the module as so:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ageof.info/assets/images/posts/2016-12-15/import-tweepy.png&quot; alt=&quot;import-tweepy&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now why would installing Tweepy system wide be a problem? Well let’s start with where Tweepy is installed, which for Python 3.5 is something like &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/lib/python3.5/dist-packages/tweepy/&lt;/code&gt;. Now there’s no problem with this so long as you use the same version of Tweepy across every twitter bot you ever make, but what happens when 2 years later you find yourself with 4 different bots running on four different versions of Tweepy? How do you tell Python 3.5 to use Tweepy 1.1 for bot 1, 1.2 for bot 2, 1.3 for bot 3, and 1.4 for bot 4?&lt;/p&gt;
+
+&lt;p&gt;The answer is you &lt;em&gt;really can’t.&lt;/em&gt; This is where Python Virtual Environments come into play.&lt;/p&gt;
+
+&lt;h3 id=&quot;dependency-management-is-a-pain-and-security-is-important&quot;&gt;Dependency Management is a Pain and Security is Important&lt;/h3&gt;
+
+&lt;p&gt;Virtual environments allow you to keep project specific installations of Python and the modules it uses. This is considered a best practice with software development as it ensures your dependencies are kept clean and organized for each project so that maintaining a given project through its life cycle remains a streamlined process. This practice is also known as “sandboxing” from a security standpoint, as you isolate packages to a local directory/environment rather than a system install. You especially want to do this with unverified modules. You can probably install well known/trusted packages system wide without worrying about security (but again, still shouldn’t because of dependencies), but you definitely don’t want to with ones that haven’t been code reviewed by a large community of developers. In other words, why would you give sudo access to a module that you don’t trust/know? When someone is executed with sudo privileges, you risk escalating an exploit to system wide access which means your entire machine is compromised, yikes!&lt;/p&gt;
+
+&lt;h2 id=&quot;installing-virtual-environments-with-virtualenv&quot;&gt;Installing Virtual Environments with Virtualenv&lt;/h2&gt;
+
+&lt;p&gt;Give the following command with pip3 in term:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip3 install virtualenv
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now you can create a virtualenv with the following command:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;virtualenv &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The above command does the following:&lt;/p&gt;
+
+&lt;p&gt;1) It created a subdirectory in your working directory with the name ‘test’
+2) In this directory, it created a symbolic link to your system’s binary of Python3 but treats it as a local installation within this directory
+3) When you now install any modules while using the ‘test’ virtual environment, they’ll be installed under &lt;code class=&quot;highlighter-rouge&quot;&gt;test/lib/&amp;lt;python_version&amp;gt;/site-packages&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Let’s test this. Activate your virtualenv with &lt;code class=&quot;highlighter-rouge&quot;&gt;source test/bin/activate&lt;/code&gt;, and you will see your working line in term change to &lt;code class=&quot;highlighter-rouge&quot;&gt;(test) &amp;lt;user&amp;gt;@&amp;lt;machine&amp;gt;:&amp;lt;working directory&amp;gt;&lt;/code&gt; like so:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ageof.info/assets/images/posts/2016-12-15/test-virtualenv.png&quot; alt=&quot;virtualenv&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;‘(test)’ tells you that you are currently working within the ‘test’ virtualenv! Congrats! Now see what version of Python3 you are using with the following:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;which python3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Because of how virtual environments work, you will see that the Python3 executable used is in &lt;code class=&quot;highlighter-rouge&quot;&gt;home/&amp;lt;user_name/test/bin/python3&lt;/code&gt;, rather than the system wide installation, &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/bin/python3&lt;/code&gt;. Now let’s do another example: try importing the Tweepy module that we imported earlier in Python 3 from within terminal. You’ll notice that Python will tell you no such module exists because virtualenv only looks from within its install directory.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ageof.info/assets/images/posts/2016-12-15/tweepy-not-found.png&quot; alt=&quot;tweepy-not-found&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Remember above how it did work? When you work within a virtual environment, you are working with the locally installed packages of that specific virtual environment. &lt;strong&gt;This is why virtualenv is such a powerful tool.&lt;/strong&gt; It allows you to keep your projects, and its dependencies, organized and separate from one another.&lt;/p&gt;
+
+&lt;p&gt;To get out of your virtualenv, simply execute the command &lt;code class=&quot;highlighter-rouge&quot;&gt;deactivate&lt;/code&gt; from within terminal. Go ahead and delete it as well with the following command (be careful to execute it as exactly from within the directory you had created ‘test’ in):&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo rm -rf &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;While we are at it, let’s go ahead and uninstall Tweepy since such a package doesn’t need to be accessible system wide:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -H pip3 uninstall tweepy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;organizing-virtualenv-with-virtualenvwrapper&quot;&gt;Organizing Virtualenv with Virtualenvwrapper&lt;/h2&gt;
+
+&lt;p&gt;Already, you have a very powerful tool for programming in Python. However, notice the command for activating your virtualenv from earlier, &lt;code class=&quot;highlighter-rouge&quot;&gt;source path/to/bin/activate&lt;/code&gt;. This seems a bit burdensome, doesn’t it? Also, look at how we had to delete it, &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo rm -rf test&lt;/code&gt; is a sudo level command that has to pass both the recursive and force flags to rm which is a pain and a little dangerous! Furthermore, imagine what happens once you have 5, 15, or 30 different environments - you will have to remember the sourcing path for each one of these, which becomes one extra thing you have to keep track of. This is where Virtualenvwrapper enters: as its name suggests, virtualenvwrapper acts as a wrapper for managing all of your virtual environments that you install, along with making the process of entering, creating, and deleting them much easier.&lt;/p&gt;
+
+&lt;p&gt;Install (system wide) with the following command:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo -H pip3 install virtualenvwrapper
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;After this, we have to finish the install by running the virtualenvwrapper.sh script which should be installed under &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/bin/virtualenvwrapper.sh&lt;/code&gt; but to be sure, run the following to check:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;which virtualenvwrapper.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Using the directory given, insert at the bottom of your &lt;code class=&quot;highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt; in your user directory the following four lines of code:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;WORKON_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.virtualenvs
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;PROJECT_HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/projects
+&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;VIRTUALENVWRAPPER_PYTHON&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/usr/bin/python3 &lt;span class=&quot;c&quot;&gt;#this would change if you were doing python2 instead or the non-default python3 (3.4, 3.6, etc)&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;source&lt;/span&gt; /path/to/your/virtualenvwrapper.sh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;These lines do is the following, in order:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;set &lt;code class=&quot;highlighter-rouge&quot;&gt;.virtualenvs&lt;/code&gt;, the directory where all your new virtualenvs will be organized, to the base of your home directory.&lt;/li&gt;
+  &lt;li&gt;set the default directory for your projects at the base of your home directory&lt;/li&gt;
+  &lt;li&gt;tells your system to use Python3 instead of Python2 for running virtualenvwrapper.sh, which does not exist as a module for Python2 (assuming you haven’t installed it like we have installed it for Python3)&lt;/li&gt;
+  &lt;li&gt;sources the script &lt;code class=&quot;highlighter-rouge&quot;&gt;virtualenvwrapper.sh&lt;/code&gt; which will be needed every time you create a new virtual environment with virtualenvwrapper.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now source your &lt;code class=&quot;highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt; so the above changes are loaded by typing the following command in terminal:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;source ~/.bashrc&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You should see something like the following:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ageof.info/assets/images/posts/2016-12-15/virtualenvwrapper-install.png&quot; alt=&quot;virtualenvwrapper-install&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Congrats! Now under &lt;code class=&quot;highlighter-rouge&quot;&gt;home/&amp;lt;user_name&amp;gt;/&lt;/code&gt;, you will see the directory &lt;code class=&quot;highlighter-rouge&quot;&gt;.virtualenvs/&lt;/code&gt; which will contain every virtualenv you manage with virtualenvwrapper! Go ahead and create one with the following command:&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkvirtualenv &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You’ll automatically be entered into your new virtualenv and from here, it acts no differently had you done it with only the &lt;code class=&quot;highlighter-rouge&quot;&gt;virtualenv test&lt;/code&gt; command from earlier. But unlike before, you can now use &lt;code class=&quot;highlighter-rouge&quot;&gt;rmvirtualenv &amp;lt;virtualenv&amp;gt;&lt;/code&gt; to delete a virtualenv in one simple command and &lt;code class=&quot;highlighter-rouge&quot;&gt;workon &amp;lt;virtualenv&amp;gt;&lt;/code&gt; to switch to your virtualenv of choice! Even if you can’t remember the names of your virtual environments, just entering &lt;code class=&quot;highlighter-rouge&quot;&gt;workon&lt;/code&gt; and hitting tab will then show all existing virtual environments so far. This behavior is mirrored with the other commands of virtualenvwrapper.&lt;/p&gt;
+
+&lt;p&gt;And with that, you are done! Congrats on setting up virtualenv and virtualenvwrapper on Linux, you are now on your way to being a Python ninja!&lt;/p&gt;
+
+&lt;h1 id=&quot;appendix-prerequisites&quot;&gt;Appendix: Prerequisites&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Ubuntu 16.04 LTS
+This guide will assume you are running Ubuntu 16.04, the most recent version of the Ubuntu Linux distribution. That said, the instructions found here can easily be applied to Ubuntu derived distributions, Debian Wheezy+, and other Debian derivatives with some tweaking.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Python 3.4+
+While Ubuntu 16.04 comes pre-installed with Python 3.5, the instructions below apply to any version from 3.4 on.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;pip3 for Python 3
+pip (Pip Installs Packages) is a module management system for Python. If you do not have pip3, it can be installed with the following command for Ubuntu 16.04:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install python3-pip
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;for 14.04:&lt;/p&gt;
+
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install python3-pip3
+&lt;/code&gt;&lt;/pre&gt;
+    &lt;/div&gt;
+
+    &lt;p&gt;After installing, make sure to update pip with:&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pip3 install --upgrade pip&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;To update the system wide (root) version of pip:&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo -H pip3 install --upgrade pip&lt;/code&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pip3 --version&lt;/code&gt; should now give you the most recent version (as of this writing, that’s 9.0.1).&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Elias Garcia</name><email>elias.jm.garcia@pressmail.ch</email></author><category term="tutorial,ubuntu,install" /><summary type="html">Since I last posted in November, I’ve been doing a lot of work with Python on a few projects of mine. As a result, I have created my own work-flow for Python development.
+That being said, one of the first things necessary for proper Python development is familiarizing yourself with and configuring Python virtual environments and how to manage them using virtualenvwrapper. Consequently, I wanted to write a short and quick guide to a properly configured Python Virtual Environment for Python 3.5+ on a Debian based system for other programmers new to Python and or Linux.</summary></entry><entry><title type="html">New Theme and Done Moving</title><link href="http://ageof.info/New-Theme-Finalized-Migration" rel="alternate" type="text/html" title="New Theme and Done Moving" /><published>2016-11-06T14:42:06-06:00</published><updated>2016-11-06T14:42:06-06:00</updated><id>http://ageof.info/New-Theme-Finalized-Migration</id><content type="html" xml:base="http://ageof.info/New-Theme-Finalized-Migration">&lt;p&gt;Alright, knocking on wood, but I do believe I am finished migrating my old blog
 and have managed to get my new theme up and running.&lt;/p&gt;
 
 &lt;p&gt;While exporting from WordPress was no problem, there was some funky data tags
@@ -26,7 +194,17 @@ and have managed to get my new theme up and running.</summary></entry><entry><ti
 
 &lt;p&gt;Each old post with an image has weird residual html tags that do not seem to play nicely with Jekyll’s site generator and header levels also are off here and there. I will clean these up when I have the spare time, but I’m just happy to be done with the majority of the migration.&lt;/p&gt;
 
-&lt;p&gt;I’ll be sure to post some more updates as they come along and I plan on making some sort of guide/post with the little lessons I learned along the way.  – ejmg&lt;/p&gt;</content><author><name>Elias Garcia</name><email>elias.jm.garcia@pressmail.ch</email></author><category term="blog" /><category term="jekyll" /><summary type="html">the Joys of Webprogramming</summary></entry><entry><title type="html">New Blog</title><link href="http://ageof.info/New-Blog" rel="alternate" type="text/html" title="New Blog" /><published>2016-10-30T22:42:06-05:00</published><updated>2016-10-30T22:42:06-05:00</updated><id>http://ageof.info/New-Blog</id><content type="html" xml:base="http://ageof.info/New-Blog">&lt;p&gt;Thanks for stopping by Ageof.Info! This is a new website hosted on my home server and I’m building much of it from the ground up, so please pardon my mess as I tweak and fix this website in the coming weeks. Keep an eye on this page and in the meantime feel free to follow me on &lt;a href=&quot;https://twitter.com/eliasjmgarcia&quot;&gt;twitter&lt;/a&gt;, &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;github&lt;/a&gt;, &lt;a href=&quot;https://www.linkedin.com/in/eliasjmgarcia&quot;&gt;linkedin&lt;/a&gt;, or my &lt;a href=&quot;https://lackingmaterial.com&quot;&gt;blog(until I finally migrate it…)&lt;/a&gt;!&lt;/p&gt;</content><author><name>Elias Garcia</name><email>elias.jm.garcia@pressmail.ch</email></author><summary type="html">Thanks for stopping by Ageof.Info! This is a new website hosted on my home server and I’m building much of it from the ground up, so please pardon my mess as I tweak and fix this website in the coming weeks. Keep an eye on this page and in the meantime feel free to follow me on twitter, github, linkedin, or my blog(until I finally migrate it…)!</summary></entry><entry><title type="html">Book Review: Living Economics</title><link href="http://ageof.info/book-review-living-economics" rel="alternate" type="text/html" title="Book Review: Living Economics" /><published>2015-07-20T13:15:12-05:00</published><updated>2015-07-20T13:15:12-05:00</updated><id>http://ageof.info/book-review-living-economics</id><content type="html" xml:base="http://ageof.info/book-review-living-economics">&lt;p&gt;Peter Boettke is an economist out of George Mason University and he specializes in the history of economic thought and institutional economics. Boettke was lucky enough to study under many notable economists, such as James Buchanan, Israel Kirzner, Gordon Tullock, and Don Lavoie. For his book &lt;em&gt;Living Economics&lt;/em&gt;, Boettke takes a different approach than others by creating a story out of economic history. In this lovely little book, Boettke takes you down economic history lane with an Austrian twist, recounting major players in economics from both the left and right and guiding you through what he believes economics is all about. In &lt;em&gt;Living Economics&lt;/em&gt;, Professor Boettke describes the profession of economics truly, as if it were alive.&lt;/p&gt;
+&lt;p&gt;I’ll be sure to post some more updates as they come along and I plan on making some sort of guide/post with the little lessons I learned along the way.  – ejmg&lt;/p&gt;</content><author><name>Elias Garcia</name><email>elias.jm.garcia@pressmail.ch</email></author><category term="blog" /><category term="jekyll" /><summary type="html">the Joys of Webprogramming</summary></entry><entry><title type="html">New Blog</title><link href="http://ageof.info/New-Blog" rel="alternate" type="text/html" title="New Blog" /><published>2016-10-30T22:42:06-05:00</published><updated>2016-10-30T22:42:06-05:00</updated><id>http://ageof.info/New-Blog</id><content type="html" xml:base="http://ageof.info/New-Blog">&lt;p&gt;Thanks for stopping by Ageof.Info! This is a new website hosted on my home
+server and I’m building much of it from the ground up, so please pardon my mess
+as I tweak and fix this website in the coming weeks. Keep an eye on this page
+and in the meantime feel free to follow me
+on &lt;a href=&quot;https://twitter.com/eliasjmgarcia&quot;&gt;twitter&lt;/a&gt;, &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;github&lt;/a&gt;, &lt;a href=&quot;https://www.linkedin.com/in/eliasjmgarcia&quot;&gt;linkedin&lt;/a&gt;, or
+my &lt;a href=&quot;https://lackingmaterial.com&quot;&gt;blog(until I finally migrate it…)&lt;/a&gt;!&lt;/p&gt;</content><author><name>Elias Garcia</name><email>elias.jm.garcia@pressmail.ch</email></author><summary type="html">Thanks for stopping by Ageof.Info! This is a new website hosted on my home
+server and I’m building much of it from the ground up, so please pardon my mess
+as I tweak and fix this website in the coming weeks. Keep an eye on this page
+and in the meantime feel free to follow me
+on twitter, github, linkedin, or
+my blog(until I finally migrate it…)!</summary></entry><entry><title type="html">Book Review: Living Economics</title><link href="http://ageof.info/book-review-living-economics" rel="alternate" type="text/html" title="Book Review: Living Economics" /><published>2015-07-20T13:15:12-05:00</published><updated>2015-07-20T13:15:12-05:00</updated><id>http://ageof.info/book-review-living-economics</id><content type="html" xml:base="http://ageof.info/book-review-living-economics">&lt;p&gt;Peter Boettke is an economist out of George Mason University and he specializes in the history of economic thought and institutional economics. Boettke was lucky enough to study under many notable economists, such as James Buchanan, Israel Kirzner, Gordon Tullock, and Don Lavoie. For his book &lt;em&gt;Living Economics&lt;/em&gt;, Boettke takes a different approach than others by creating a story out of economic history. In this lovely little book, Boettke takes you down economic history lane with an Austrian twist, recounting major players in economics from both the left and right and guiding you through what he believes economics is all about. In &lt;em&gt;Living Economics&lt;/em&gt;, Professor Boettke describes the profession of economics truly, as if it were alive.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://lackingmaterial.files.wordpress.com/2015/07/living.jpg&quot;&gt;&lt;img class=&quot;size-full wp-image-1218&quot; src=&quot;/assets/images/posts/living.jpg&quot; alt=&quot;Source: Amazon&quot; width=&quot;333&quot; height=&quot;499&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h3&gt;Why I chose it&lt;/h3&gt;
 &lt;p&gt;Peter Boettke teaches at George Mason University, a school I have immense respect for and hope to one day attend. &lt;em&gt;Living Economics&lt;/em&gt; is a book meant for aspiring graduate students, and while I am far from that, I still believed I would enjoy it.&lt;/p&gt;
@@ -218,34 +396,4 @@ Another professor who I have not seen yet and enjoyed was Abby Hall from the Un
 Finally, but not lastly, was Robert Higgs’ keynote speech on Wednesday night. Mr. Higgs is the senior editor at Independent Institute, as well as a significant writer in the libertarian tradition of economic thought. His book Crisis and Leviathan is a major piece of literature in theories of the state, and Higgs has written on countless other subjects through the years. During the summer before my senior year of high school, I met Mr. Higgs in St. Louis FEE college and high school seminars. It was at the college seminar, where Higgs spoke and socialized, that I decided to switch to economics as a major. Robert Higgs is an amazing person to talk to, and I enjoyed the opportunity to meet him one more time before he moves off to Mexico.
 
 The speeches provided by Kyle Swan, Ryan Yonk, and Mark Thomas were also great, and I loved getting to talk with them on the side. Professor Swan comes from Sacramento State University, and he teaches classical political thought with an emphasis on ‘liberal neutrality’ and non-consequentialist political theory. Professor Thomas comes from Creighton, like Professor Bailey, and his lectures revolved around public choice theory and its implications on the policy making process. I have already talked about Ryan Yonk in a previous travelogue, and his presentations were basically the same as last time (I don't blame him for not changing his lecture for the few KFP members there, haha).
-Outside of the lectures, Independent provided socials, and I hung out with other students and the other fellows from Independent. It was a fun week, and I honestly learned a lot. UC Berkeley was a pretty campus and I enjoyed the student life in the town when I ventured down from the Clark Kerr campus. I will be posting soon about my reading updates and fellowship with Independent, but this is it for now. Till then.</summary></entry><entry><title type="html">Debt, Greece, and Democracy</title><link href="http://ageof.info/debt-greece-and-democracy" rel="alternate" type="text/html" title="Debt, Greece, and Democracy" /><published>2015-07-04T20:00:00-05:00</published><updated>2015-07-04T20:00:00-05:00</updated><id>http://ageof.info/debt-greece-and-democracy</id><content type="html" xml:base="http://ageof.info/debt-greece-and-democracy">&lt;p&gt;Joseph Stiglitz recently &lt;a href=&quot;http://www.theguardian.com/business/2015/jun/29/joseph-stiglitz-how-i-would-vote-in-the-greek-referendum&quot; target=&quot;_blank&quot;&gt;wrote in the Guardian&lt;/a&gt; how the European Union and International Monetary Fund’s treatment of Greece was anti-democratic.  I disagree, because the current ‘Grexit’ crisis is not a bug, but a feature of the political and democratic process of the European Union. Stuck between stubborn pensioners and angry non-Greeks, the government of Greece and leaders of the European Union are stuck in a zero-sum fight that promises no winners.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://lackingmaterial.files.wordpress.com/2015/07/ap-photo-emilio-morenatti.jpg&quot;&gt;&lt;img class=&quot;wp-image-1196 size-full&quot; src=&quot;/assets/images/posts/ap-photo-emilio-morenatti.jpg&quot; alt=&quot;Greeks at a referendum protest, source: AP photo/Emilio Morenatti&quot; width=&quot;620&quot; height=&quot;465&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3&gt;What exactly is happening?&lt;/h3&gt;
-&lt;p&gt;With the consolidation of the European monetary union, most members of the European Union gave up their individual ability to manipulate their money supply to the supranational organization, the European Central Bank. As a result, this heavily constrains the ability of any E.U. monetary member to pursue excessive government deficits without the explicit consent of the ECB, and by extension, other E.U. nations.&lt;/p&gt;
-&lt;p&gt;Fast forward to 2015, add in out of control public spending, institutionalized &lt;a href=&quot;https://en.wikipedia.org/wiki/Tax_evasion_and_corruption_in_Greece&quot; target=&quot;_blank&quot;&gt;tax evasion, corruption&lt;/a&gt;, and you have Greece.&lt;/p&gt;
-&lt;p&gt;A member of the European Union since 2000, in 2010 regulators discovered that Greece was at the brink of insolvency due to hidden debts it had incurred through &lt;a href=&quot;http://www.nytimes.com/2010/02/14/business/global/14debt.html&quot; target=&quot;_blank&quot;&gt;banks such as Goldman Sachs&lt;/a&gt;. Consequentially, the European Union believed that bailing out the Greeks was necessary, and together with the International Monetary Fund, out on severe conditions of austerity reforms.&lt;/p&gt;
-&lt;p&gt;Since the initial bailout (and another in 2011), Greece has seen moderate success in restructuring its economy, but ultimately fell short of the severe austerity demands of its creditors. Come 2015 elections, and Syriza, a fringe leftist government, accomplished a landslide election on an anti-austerity, anti-Troika (a pejorative for the EU, IMF, and European commission), and Greek solidarity platform. Greece’s new leaders, Prime Minister Alexis Tsipras and Finance Minister Yanis Varoufakis, have since campaigned on the horrible mistreatment of Greece’s people and its economy.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://lackingmaterial.files.wordpress.com/2015/07/epa.jpg&quot;&gt;&lt;img class=&quot;size-full wp-image-1197&quot; src=&quot;/assets/images/posts/epa.jpg&quot; alt=&quot;Tsipras and Varoufakis, source: EPA&quot; width=&quot;620&quot; height=&quot;414&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h3&gt;Not so fast&lt;/h3&gt;
-&lt;p&gt;However, this struggle is not as black and white as Tsipras and Stiglitz want you to think. While Greece has made many reforms since 2010, its public pensions and state enterprises still dwarf those of its poorer Eastern European Union neighbors. Countries like Lithuania have average public pensions that are less than one-third the size of their Greek counterparts, and their leaders have remained among the &lt;a href=&quot;http://www.nytimes.com/2015/06/30/world/europe/greeces-troubles-attract-little-sympathy-from-poorer-neighbors.html&quot; target=&quot;_blank&quot;&gt;greatest critics of Greece’s government&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Making matters more complicated, other European nations that were recently bailed around 2010 (Ireland, Portugal, Italy, and Cyprus) all enacted the desired austerity measures and reforms from creditors, and have since made successful economic recoveries.&lt;/p&gt;
-&lt;p&gt;These differences in the European Union leads to a greater point, and my criticism of opinions like Stiglitz and Tsipras. As Jeffrey Sachs, a notable economist a Columbia University, said yesterday, &lt;a href=&quot;http://www.project-syndicate.org/commentary/greece-endgame-eurozone-default-by-jeffrey-d-sachs-2015-06&quot; target=&quot;_blank&quot;&gt;Europe remains largely fragmented along nationalistic lines&lt;/a&gt;. European leaders are at odds with Greece’s government not because of some inner sadistic desire, but because their national constituents are fed up with financing the excesses of Greece’s economy and government.&lt;/p&gt;
-&lt;p&gt;The European Union, despite achieving much success with integration, still has its problems. A unified polity, or lack of, remains one of its largest weaknesses. Following this failure, debates over bailouts, debt, and economic reforms will remain at the whim of largely conflicting public and special interests. This is about as democratic as the federalist European Union can get. As I said at the beginning, this is a feature, not a bug.&lt;/p&gt;
-&lt;p&gt;Bailouts in the eyes of non-Greeks appear as a waste of European money on a nation with leaders that pride themselves on political brinkmanship, a party that is Euro-sceptic, flirts with Russia for aid, and has no real plans for long term restructuring of its public expenses. Unfortunately for Greece, it does not make up the majority of Europe and will not be winning the public opinion contest.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://lackingmaterial.files.wordpress.com/2015/07/kal-economist.jpg&quot;&gt;&lt;img class=&quot;size-full wp-image-1198&quot; src=&quot;/assets/images/posts/kal-economist.jpg&quot; alt=&quot;Kal's Cartoon in the Economist&quot; width=&quot;595&quot; height=&quot;389&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Despite their short fallings, Stiglitz et al. are right that, at this point, some debt forgiveness is necessary for a stable Greece and European Union. The barrier to this, however, is Stiglitz’s accursed democracy.&lt;/p&gt;</content><author><name>Elias Garcia</name><email>elias.jm.garcia@pressmail.ch</email></author><category term="debt" /><category term="Euro" /><category term="Greece" /><category term="Democracy" /><summary type="html">Joseph Stiglitz recently wrote in the Guardian how the European Union and International Monetary Fund’s treatment of Greece was anti-democratic.  I disagree, because the current ‘Grexit’ crisis is not a bug, but a feature of the political and democratic process of the European Union. Stuck between stubborn pensioners and angry non-Greeks, the government of Greece and leaders of the European Union are stuck in a zero-sum fight that promises no winners.
-
-What exactly is happening?
-With the consolidation of the European monetary union, most members of the European Union gave up their individual ability to manipulate their money supply to the supranational organization, the European Central Bank. As a result, this heavily constrains the ability of any E.U. monetary member to pursue excessive government deficits without the explicit consent of the ECB, and by extension, other E.U. nations.
-Fast forward to 2015, add in out of control public spending, institutionalized tax evasion, corruption, and you have Greece.
-A member of the European Union since 2000, in 2010 regulators discovered that Greece was at the brink of insolvency due to hidden debts it had incurred through banks such as Goldman Sachs. Consequentially, the European Union believed that bailing out the Greeks was necessary, and together with the International Monetary Fund, out on severe conditions of austerity reforms.
-Since the initial bailout (and another in 2011), Greece has seen moderate success in restructuring its economy, but ultimately fell short of the severe austerity demands of its creditors. Come 2015 elections, and Syriza, a fringe leftist government, accomplished a landslide election on an anti-austerity, anti-Troika (a pejorative for the EU, IMF, and European commission), and Greek solidarity platform. Greece’s new leaders, Prime Minister Alexis Tsipras and Finance Minister Yanis Varoufakis, have since campaigned on the horrible mistreatment of Greece’s people and its economy.
-
-Not so fast
-However, this struggle is not as black and white as Tsipras and Stiglitz want you to think. While Greece has made many reforms since 2010, its public pensions and state enterprises still dwarf those of its poorer Eastern European Union neighbors. Countries like Lithuania have average public pensions that are less than one-third the size of their Greek counterparts, and their leaders have remained among the greatest critics of Greece’s government.
-Making matters more complicated, other European nations that were recently bailed around 2010 (Ireland, Portugal, Italy, and Cyprus) all enacted the desired austerity measures and reforms from creditors, and have since made successful economic recoveries.
-These differences in the European Union leads to a greater point, and my criticism of opinions like Stiglitz and Tsipras. As Jeffrey Sachs, a notable economist a Columbia University, said yesterday, Europe remains largely fragmented along nationalistic lines. European leaders are at odds with Greece’s government not because of some inner sadistic desire, but because their national constituents are fed up with financing the excesses of Greece’s economy and government.
-The European Union, despite achieving much success with integration, still has its problems. A unified polity, or lack of, remains one of its largest weaknesses. Following this failure, debates over bailouts, debt, and economic reforms will remain at the whim of largely conflicting public and special interests. This is about as democratic as the federalist European Union can get. As I said at the beginning, this is a feature, not a bug.
-Bailouts in the eyes of non-Greeks appear as a waste of European money on a nation with leaders that pride themselves on political brinkmanship, a party that is Euro-sceptic, flirts with Russia for aid, and has no real plans for long term restructuring of its public expenses. Unfortunately for Greece, it does not make up the majority of Europe and will not be winning the public opinion contest.
-
-Despite their short fallings, Stiglitz et al. are right that, at this point, some debt forgiveness is necessary for a stable Greece and European Union. The barrier to this, however, is Stiglitz’s accursed democracy.</summary></entry></feed>
+Outside of the lectures, Independent provided socials, and I hung out with other students and the other fellows from Independent. It was a fun week, and I honestly learned a lot. UC Berkeley was a pretty campus and I enjoyed the student life in the town when I ventured down from the Clark Kerr campus. I will be posting soon about my reading updates and fellowship with Independent, but this is it for now. Till then.</summary></entry></feed>
