@@ -2,8 +2,14 @@
 layout: single
 title:  "Tutorial: Setting Up Virtualenv and Virtualenvwrapper on Linux for Python 3.x"
 date:   2016-11-06 20:42:06
-categories: Programming,Linux,Python
-tags: tutorial,ubuntu,install
+categories: 
+- Programming 
+- Linux
+- Python
+tags: 
+- tutorial 
+- ubuntu 
+- install
 ---
 
 Since I last posted in November, I've been doing a lot of work with Python on a few projects of mine. As a result, I have created my own work-flow for Python development.
