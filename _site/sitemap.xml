@@ -333,13 +333,16 @@
 <lastmod>2013-11-06T07:47:27-06:00</lastmod>
 </url>
 <url>
+<loc>http://ageof.info/about/</loc>
+</url>
+<url>
 <loc>http://ageof.info/categories/</loc>
 </url>
 <url>
 <loc>http://ageof.info/</loc>
 </url>
 <url>
-<loc>http://ageof.info/about/</loc>
+<loc>http://ageof.info/opportunities/</loc>
 </url>
 <url>
 <loc>http://ageof.info/tags/5th-of-november/</loc>
@@ -1249,5 +1252,9 @@
 </url>
 <url>
 <loc>http://ageof.info/page17/</loc>
+</url>
+<url>
+<loc>http://ageof.info/assets/pdfs/resume.pdf</loc>
+<lastmod>2016-12-19T11:46:57-06:00</lastmod>
 </url>
 </urlset>

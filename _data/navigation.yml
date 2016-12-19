@@ -2,6 +2,10 @@
 main:
   - title: "About"
     url: /about/
+  - title: "Résumé"
+    url: /assets/pdfs/resume.pdf
+  - title: "Opportunities"
+    url: /opportunities/
   - title: "Categories"
     url: /categories/
   # - title: "Sample Collections"
