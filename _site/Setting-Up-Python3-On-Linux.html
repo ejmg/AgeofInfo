@@ -28,8 +28,8 @@
 <meta property="og:title" content="Tutorial: Setting Up Virtualenv and Virtualenvwrapper on Linux for Python 3.x">
 
 
-  <link rel="canonical" href="http://ageof.info/Setting-Up-Python3-On-Linux">
-  <meta property="og:url" content="http://ageof.info/Setting-Up-Python3-On-Linux">
+  <link rel="canonical" href="http://localhost:4000/Setting-Up-Python3-On-Linux">
+  <meta property="og:url" content="http://localhost:4000/Setting-Up-Python3-On-Linux">
 
 
 
@@ -40,7 +40,7 @@
   <meta name="twitter:site" content="@eliasjmgarcia">
   <meta name="twitter:title" content="Tutorial: Setting Up Virtualenv and Virtualenvwrapper on Linux for Python 3.x">
   <meta name="twitter:description" content="Since I last posted in November, I’ve been doing a lot of work with Python on a few projects of mine. As a result, I have created my own work-flow for Python development.That being said, one of the first things necessary for proper Python development is familiarizing yourself with and configuring Python virtual environments and how to manage them using virtualenvwrapper. Consequently, I wanted to write a short and quick guide to a properly configured Python Virtual Environment for Python 3.5+ on a Debian based system for other programmers new to Python and or Linux.">
-  <meta name="twitter:url" content="http://ageof.info/Setting-Up-Python3-On-Linux">
+  <meta name="twitter:url" content="http://localhost:4000/Setting-Up-Python3-On-Linux">
 
   
     <meta name="twitter:card" content="summary">
@@ -74,7 +74,7 @@
       "@context" : "http://schema.org",
       "@type" : "Person",
       "name" : "Elias Garcia",
-      "url" : "http://ageof.info",
+      "url" : "http://localhost:4000",
       "sameAs" : null
     }
   </script>
@@ -87,7 +87,7 @@
 <!-- end SEO -->
 
 
-<link href="http://ageof.info/feed.xml" type="application/atom+xml" rel="alternate" title="Age of Info Feed">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Age of Info Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -99,7 +99,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="http://ageof.info/assets/css/main.css">
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
 
 <meta http-equiv="cleartype" content="on">
     <!-- start custom head snippets -->
@@ -130,19 +130,19 @@
       <nav id="site-nav" class="greedy-nav">
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://ageof.info/">Age of Info</a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Age of Info</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://ageof.info/about/">About</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/about/">About</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://ageof.info/assets/pdfs/resume.pdf">Résumé</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/assets/pdfs/resume.pdf">Résumé</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://ageof.info/opportunities/">Opportunities</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/opportunities/">Opportunities</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://ageof.info/categories/">Categories</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/categories/">Categories</a></li>
           
         </ul>
         <ul class="hidden-links hidden"></ul>
@@ -165,7 +165,7 @@
   
     <div class="author__avatar">
       
-      	<img src="http://ageof.info/assets/images/bio-photo.jpg#%20path%20of%20avatar%20image,%20e.g.%20%22/assets/images/bio-photo.jpg%22" class="author__avatar" alt="Elias Garcia">
+      	<img src="http://localhost:4000/assets/images/bio-photo.jpg#%20path%20of%20avatar%20image,%20e.g.%20%22/assets/images/bio-photo.jpg%22" class="author__avatar" alt="Elias Garcia">
       
     </div>
   
@@ -269,7 +269,7 @@ That being said, one of the first things necessary for proper Python development
 
 <p>You can check that tweepy exists by entering the python3 terminal by importing the module as so:</p>
 
-<p><img src="http://ageof.info/assets/images/posts/2016-12-15/import-tweepy.png" alt="import-tweepy" /></p>
+<p><img src="http://localhost:4000/assets/images/posts/2016-12-15/import-tweepy.png" alt="import-tweepy" /></p>
 
 <p>Now why would installing Tweepy system wide be a problem? Well let’s start with where Tweepy is installed, which for Python 3.5 is something like <code class="highlighter-rouge">/usr/lib/python3.5/dist-packages/tweepy/</code>. Now there’s no problem with this so long as you use the same version of Tweepy across every twitter bot you ever make, but what happens when 2 years later you find yourself with 4 different bots running on four different versions of Tweepy? How do you tell Python 3.5 to use Tweepy 1.1 for bot 1, 1.2 for bot 2, 1.3 for bot 3, and 1.4 for bot 4?</p>
 
@@ -301,7 +301,7 @@ That being said, one of the first things necessary for proper Python development
 
 <p>Let’s test this. Activate your virtualenv with <code class="highlighter-rouge">source test/bin/activate</code>, and you will see your working line in term change to <code class="highlighter-rouge">(test) &lt;user&gt;@&lt;machine&gt;:&lt;working directory&gt;</code> like so:</p>
 
-<p><img src="http://ageof.info/assets/images/posts/2016-12-15/test-virtualenv.png" alt="virtualenv" /></p>
+<p><img src="http://localhost:4000/assets/images/posts/2016-12-15/test-virtualenv.png" alt="virtualenv" /></p>
 
 <p>‘(test)’ tells you that you are currently working within the ‘test’ virtualenv! Congrats! Now see what version of Python3 you are using with the following:</p>
 
@@ -311,7 +311,7 @@ That being said, one of the first things necessary for proper Python development
 
 <p>Because of how virtual environments work, you will see that the Python3 executable used is in <code class="highlighter-rouge">home/&lt;user_name/test/bin/python3</code>, rather than the system wide installation, <code class="highlighter-rouge">/usr/bin/python3</code>. Now let’s do another example: try importing the Tweepy module that we imported earlier in Python 3 from within terminal. You’ll notice that Python will tell you no such module exists because virtualenv only looks from within its install directory.</p>
 
-<p><img src="http://ageof.info/assets/images/posts/2016-12-15/tweepy-not-found.png" alt="tweepy-not-found" /></p>
+<p><img src="http://localhost:4000/assets/images/posts/2016-12-15/tweepy-not-found.png" alt="tweepy-not-found" /></p>
 
 <p>Remember above how it did work? When you work within a virtual environment, you are working with the locally installed packages of that specific virtual environment. <strong>This is why virtualenv is such a powerful tool.</strong> It allows you to keep your projects, and its dependencies, organized and separate from one another.</p>
 
@@ -365,7 +365,7 @@ That being said, one of the first things necessary for proper Python development
 
 <p>You should see something like the following:</p>
 
-<p><img src="http://ageof.info/assets/images/posts/2016-12-15/virtualenvwrapper-install.png" alt="virtualenvwrapper-install" /></p>
+<p><img src="http://localhost:4000/assets/images/posts/2016-12-15/virtualenvwrapper-install.png" alt="virtualenvwrapper-install" /></p>
 
 <p>Congrats! Now under <code class="highlighter-rouge">home/&lt;user_name&gt;/</code>, you will see the directory <code class="highlighter-rouge">.virtualenvs/</code> which will contain every virtualenv you manage with virtualenvwrapper! Go ahead and create one with the following command:</p>
 
@@ -433,15 +433,15 @@ pip (Pip Installs Packages) is a module management system for Python. If you do 
     
       
       
-      <a href="http://ageof.info/tags/install" class="page__taxonomy-item" rel="tag">install</a><span class="sep">, </span>
+      <a href="http://localhost:4000/tags/install" class="page__taxonomy-item" rel="tag">install</a><span class="sep">, </span>
     
       
       
-      <a href="http://ageof.info/tags/tutorial" class="page__taxonomy-item" rel="tag">tutorial</a><span class="sep">, </span>
+      <a href="http://localhost:4000/tags/tutorial" class="page__taxonomy-item" rel="tag">tutorial</a><span class="sep">, </span>
     
       
       
-      <a href="http://ageof.info/tags/ubuntu" class="page__taxonomy-item" rel="tag">ubuntu</a>
+      <a href="http://localhost:4000/tags/ubuntu" class="page__taxonomy-item" rel="tag">ubuntu</a>
     
     </span>
   </p>
@@ -462,15 +462,15 @@ pip (Pip Installs Packages) is a module management system for Python. If you do 
     
       
       
-      <a href="http://ageof.info/categories/linux" class="page__taxonomy-item" rel="tag">Linux</a><span class="sep">, </span>
+      <a href="http://localhost:4000/categories/linux" class="page__taxonomy-item" rel="tag">Linux</a><span class="sep">, </span>
     
       
       
-      <a href="http://ageof.info/categories/programming" class="page__taxonomy-item" rel="tag">Programming</a><span class="sep">, </span>
+      <a href="http://localhost:4000/categories/programming" class="page__taxonomy-item" rel="tag">Programming</a><span class="sep">, </span>
     
       
       
-      <a href="http://ageof.info/categories/python" class="page__taxonomy-item" rel="tag">Python</a>
+      <a href="http://localhost:4000/categories/python" class="page__taxonomy-item" rel="tag">Python</a>
     
     </span>
   </p>
@@ -486,20 +486,20 @@ pip (Pip Installs Packages) is a module management system for Python. If you do 
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=eliasjmgarcia&text=Tutorial: Setting Up Virtualenv and Virtualenvwrapper on Linux for Python 3.x http://ageof.info/Setting-Up-Python3-On-Linux" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=eliasjmgarcia&text=Tutorial: Setting Up Virtualenv and Virtualenvwrapper on Linux for Python 3.x http://localhost:4000/Setting-Up-Python3-On-Linux" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http://ageof.info/Setting-Up-Python3-On-Linux" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/Setting-Up-Python3-On-Linux" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=http://ageof.info/Setting-Up-Python3-On-Linux" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=http://localhost:4000/Setting-Up-Python3-On-Linux" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://ageof.info/Setting-Up-Python3-On-Linux" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/Setting-Up-Python3-On-Linux" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="http://ageof.info/New-Theme-Finalized-Migration" class="pagination--pager" title="New Theme and Done Moving
+      <a href="http://localhost:4000/New-Theme-Finalized-Migration" class="pagination--pager" title="New Theme and Done Moving
 ">Previous</a>
     
     
@@ -534,7 +534,7 @@ pip (Pip Installs Packages) is a module management system for Python. If you do 
       <li><a href="http://github.com/ejmg"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
     
     
-    <li><a href="http://ageof.info/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
   </ul>
 </div>
 
@@ -542,7 +542,7 @@ pip (Pip Installs Packages) is a module management system for Python. If you do 
       </footer>
     </div>
 
-    <script src="http://ageof.info/assets/js/main.min.js"></script>
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
 
 
 
