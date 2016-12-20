@@ -103,19 +103,9 @@
 <meta http-equiv="cleartype" content="on">
     <!-- start custom head snippets -->
 
-<!-- code for favicons -->
-<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon.png">
-<link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/assets/images/favicons/manifest.json">
-<link rel="mask-icon" href="/assets/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="shortcut icon" href="/assets/images/favicons/favicon.ico">
-<meta name="msapplication-config" content="/assets/images/favicons/browserconfig.xml">
-<meta name="theme-color" content="#ffffff">
-
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
 
 <!-- end custom head snippets -->
-
   </head>
 
   <body class="layout--home">
@@ -164,54 +154,109 @@
   
     <div class="author__avatar">
       
-      	<img src="http://ageof.info/assets/images/bio-photo.jpg#%20path%20of%20avatar%20image,%20e.g.%20%22/assets/images/bio-photo.jpg%22" class="author__avatar" alt="Elias Garcia">
+        <img src="http://ageof.info/assets/images/bio-photo.jpg#%20path%20of%20avatar%20image,%20e.g.%20%22/assets/images/bio-photo.jpg%22" class="author__avatar" alt="Elias Garcia" itemprop="image">
       
     </div>
   
 
   <div class="author__content">
-    <h3 class="author__name">Elias Garcia</h3>
-    <p class="author__bio">cs and economics student, interested in data analysis and institutions</p>
+    <h3 class="author__name" itemprop="name">Elias Garcia</h3>
+    
+      <p class="author__bio" itemprop="description">
+        cs and economics student, interested in data analysis and institutions
+      </p>
+    
   </div>
 
   <div class="author__urls-wrapper">
     <button class="btn btn--inverse">Follow</button>
     <ul class="author__urls social-icons">
       
-        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Truman State</li>
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Truman State</span>
+        </li>
       
+
       
+
       
-        <li><a href="mailto:elias.jm.garcia@pressmail.ch"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        <li>
+          <a href="mailto:elias.jm.garcia@pressmail.ch">
+            <meta itemprop="email" content="elias.jm.garcia@pressmail.ch" />
+            <i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
       
+
       
+
       
-        <li><a href="https://twitter.com/eliasjmgarcia"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        <li>
+          <a href="https://twitter.com/eliasjmgarcia" itemprop="sameAs">
+            <i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+          </a>
+        </li>
       
+
       
+
       
+
       
-        <li><a href="https://www.linkedin.com/in/eliasjmgarcia"><i class="fa fa-fw fa-linkedin-square" aria-hidden="true"></i> LinkedIn</a></li>
+        <li>
+          <a href="https://www.linkedin.com/in/eliasjmgarcia" itemprop="sameAs">
+            <i class="fa fa-fw fa-linkedin-square" aria-hidden="true"></i> LinkedIn
+          </a>
+        </li>
       
+
       
+
       
+
       
+
       
+
       
-        <li><a href="https://github.com/ejmg"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+        <li>
+          <a href="https://github.com/ejmg" itemprop="sameAs">
+            <i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
       
+
       
+
       
+
       
+
       
+
       
+
       
+
       
+
       
+
       
+
       
+
       
+
       
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
     </ul>
   </div>
 </div>
@@ -244,9 +289,9 @@
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  7 minute read
-	
+
+
+  7 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">The Truth is rarely pure, and never simple&lt;/p&gt;
@@ -276,9 +321,9 @@ a general law, rule, principle, or criterion by which something i...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -303,9 +348,9 @@ Sorry for the lack of material lately, I've been extremely busy these past two w
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  6 minute read
-	
+
+
+  6 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -330,9 +375,9 @@ This week I read Jon Krakauer's non-fiction book Into the Wild, a book about a m
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  11 minute read
-	
+
+
+  11 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">My short analysis of a theme from Ayn Rand's Atlas Shrugged. I am probably going to skip to something else for my next post, but I will probably be doing ano...</p>
@@ -356,9 +401,9 @@ This week I read Jon Krakauer's non-fiction book Into the Wild, a book about a m
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Wrote this for school, we had to choose a story from genesis to interpret ourselves and find an alternative meaning. This is mine. As usual, any criticism is...</p>

@@ -2,7 +2,7 @@ source "https://rubygems.org"
 ruby 2.3
 
 gem "jekyll", "~> 3.3.0"
-gem "minimal-mistakes-jekyll"
+gem "minimal-mistakes-jekyll", "~> 4.1.0"
 
 group :jekyll_plugins do
   gem "jekyll-paginate"

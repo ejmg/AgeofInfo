@@ -99,19 +99,9 @@
 <meta http-equiv="cleartype" content="on">
     <!-- start custom head snippets -->
 
-<!-- code for favicons -->
-<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicons/apple-touch-icon.png">
-<link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="/assets/images/favicons/manifest.json">
-<link rel="mask-icon" href="/assets/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
-<link rel="shortcut icon" href="/assets/images/favicons/favicon.ico">
-<meta name="msapplication-config" content="/assets/images/favicons/browserconfig.xml">
-<meta name="theme-color" content="#ffffff">
-
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
 
 <!-- end custom head snippets -->
-
   </head>
 
   <body class="layout--archive">
@@ -160,54 +150,109 @@
   
     <div class="author__avatar">
       
-      	<img src="http://ageof.info/assets/images/bio-photo.jpg#%20path%20of%20avatar%20image,%20e.g.%20%22/assets/images/bio-photo.jpg%22" class="author__avatar" alt="Elias Garcia">
+        <img src="http://ageof.info/assets/images/bio-photo.jpg#%20path%20of%20avatar%20image,%20e.g.%20%22/assets/images/bio-photo.jpg%22" class="author__avatar" alt="Elias Garcia" itemprop="image">
       
     </div>
   
 
   <div class="author__content">
-    <h3 class="author__name">Elias Garcia</h3>
-    <p class="author__bio">cs and economics student, interested in data analysis and institutions</p>
+    <h3 class="author__name" itemprop="name">Elias Garcia</h3>
+    
+      <p class="author__bio" itemprop="description">
+        cs and economics student, interested in data analysis and institutions
+      </p>
+    
   </div>
 
   <div class="author__urls-wrapper">
     <button class="btn btn--inverse">Follow</button>
     <ul class="author__urls social-icons">
       
-        <li><i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> Truman State</li>
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Truman State</span>
+        </li>
       
+
       
+
       
-        <li><a href="mailto:elias.jm.garcia@pressmail.ch"><i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+        <li>
+          <a href="mailto:elias.jm.garcia@pressmail.ch">
+            <meta itemprop="email" content="elias.jm.garcia@pressmail.ch" />
+            <i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
       
+
       
+
       
-        <li><a href="https://twitter.com/eliasjmgarcia"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+        <li>
+          <a href="https://twitter.com/eliasjmgarcia" itemprop="sameAs">
+            <i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+          </a>
+        </li>
       
+
       
+
       
+
       
-        <li><a href="https://www.linkedin.com/in/eliasjmgarcia"><i class="fa fa-fw fa-linkedin-square" aria-hidden="true"></i> LinkedIn</a></li>
+        <li>
+          <a href="https://www.linkedin.com/in/eliasjmgarcia" itemprop="sameAs">
+            <i class="fa fa-fw fa-linkedin-square" aria-hidden="true"></i> LinkedIn
+          </a>
+        </li>
       
+
       
+
       
+
       
+
       
+
       
-        <li><a href="https://github.com/ejmg"><i class="fa fa-fw fa-github" aria-hidden="true"></i> Github</a></li>
+        <li>
+          <a href="https://github.com/ejmg" itemprop="sameAs">
+            <i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
       
+
       
+
       
+
       
+
       
+
       
+
       
+
       
+
       
+
       
+
       
+
       
+
       
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
     </ul>
   </div>
 </div>
@@ -1912,9 +1957,9 @@
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">I have not seen too much discussion on this, but after a failed coup, Burundi's government is struggling with a question of legitimacy. The coup was a respon...</p>
@@ -1938,9 +1983,9 @@
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">At face, electing a military dictator may not fit the western conception of political progress. In Nigeria, however, the successful presidential election of ...</p>
@@ -1964,9 +2009,9 @@
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Truman Index, this article has not been updated to reflect the new domestic victim of Ebola. It should be noted, however, that thi...</p>
@@ -1994,9 +2039,9 @@
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Peter Boettke is an economist out of George Mason University and he specializes in the history of economic thought and institutional economics. Boettke was l...</p>
@@ -2020,9 +2065,9 @@
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  6 minute read
-	
+
+
+  6 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">To the Edge: Legality, Legitimacy, and the Responses to the 2008 Financial Crisis was a book unlike any other historical analysis I have read so far. This wa...</p>
@@ -2046,9 +2091,9 @@
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  3 minute read
-	
+
+
+  3 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">There is a popular joke in academia about the 'imperialism' of economics. Just about any topic and field has been covered by economists in one way or another...</p>
@@ -2072,9 +2117,9 @@
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">For economic historians, the ability to write well comes almost as second nature. For Douglass C. North, the author and Nobel winning economist behind Struct...</p>
@@ -2098,9 +2143,9 @@
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Finished this book recently and wanted to make a general review on it. I will do my best to make a relatively small summation of a mammoth of a book.
@@ -2129,9 +2174,9 @@ Why I c...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  7 minute read
-	
+
+
+  7 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 12.15.14
@@ -2160,9 +2205,9 @@ It was almost two years ago that Edward Snowden began the NSA revela...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Peter Boettke is an economist out of George Mason University and he specializes in the history of economic thought and institutional economics. Boettke was l...</p>
@@ -2186,9 +2231,9 @@ It was almost two years ago that Edward Snowden began the NSA revela...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  6 minute read
-	
+
+
+  6 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">To the Edge: Legality, Legitimacy, and the Responses to the 2008 Financial Crisis was a book unlike any other historical analysis I have read so far. This wa...</p>
@@ -2212,9 +2257,9 @@ It was almost two years ago that Edward Snowden began the NSA revela...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">A book I just recently finished, After War: the Political Economy of Exporting Democracy, has a lot of insight into the institutional and behavioral theory b...</p>
@@ -2238,9 +2283,9 @@ It was almost two years ago that Edward Snowden began the NSA revela...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">For economic historians, the ability to write well comes almost as second nature. For Douglass C. North, the author and Nobel winning economist behind Struct...</p>
@@ -2264,9 +2309,9 @@ It was almost two years ago that Edward Snowden began the NSA revela...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  3 minute read
-	
+
+
+  3 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Joseph Stiglitz recently wrote in the Guardian how the European Union and International Monetary Fund’s treatment of Greece was anti-democratic.  I disagree,...</p>
@@ -2290,9 +2335,9 @@ It was almost two years ago that Edward Snowden began the NSA revela...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">A popular theorem within economics comes from Ronald Coase, an economist who won the Nobel for his analysis of the firm and revitalization of institutional a...</p>
@@ -2316,9 +2361,9 @@ It was almost two years ago that Edward Snowden began the NSA revela...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">[caption id="attachment_1075" align="aligncenter" width="620"] A picture I took of Monroe Hall, where all of KFP's lectures take place[/caption]
@@ -2343,9 +2388,9 @@ The first sp...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Just an observation, in one part obvious, the other more in minutia:
@@ -2370,9 +2415,9 @@ Anecdotally, the US economy increasingly relies on the press releases of the US 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -2397,9 +2442,9 @@ After three days of socializing and watching lectures, I must say that FEE and C
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Reading miscellanea:
@@ -2425,9 +2470,9 @@ An interesting article by Kemal Derviş, the VP of the Brookings Institute, on h
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">This past Tuesday, Richard Shelby, a republican senator from Alabama, introduced a draft bill to reform the Federal Reserve, a controversial topic across the...</p>
@@ -2451,9 +2496,9 @@ An interesting article by Kemal Derviş, the VP of the Brookings Institute, on h
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Finished this book recently and wanted to make a general review on it. I will do my best to make a relatively small summation of a mammoth of a book.
@@ -2478,9 +2523,9 @@ Why I c...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Two weeks ago, Tyler Cowen and Alex Tabarrok published a fantastic essay on the end of asymmetric information, its affect on markets, and how policy makers s...</p>
@@ -2504,9 +2549,9 @@ Why I c...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">I did not have the time to write something for Earth Day, but luckily the Cato institute published an extremely balanced and explanatory article on the diffi...</p>
@@ -2530,9 +2575,9 @@ Why I c...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description"> 
@@ -2557,9 +2602,9 @@ Everyone knows that when you download a free game on your phone, there is a soli
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  3 minute read
-	
+
+
+  3 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 4.1.15.
@@ -2584,9 +2629,9 @@ California looms at the precipice of a water crisis unseen in the his...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">At face, electing a military dictator may not fit the western conception of political progress. In Nigeria, however, the successful presidential election of ...</p>
@@ -2610,9 +2655,9 @@ California looms at the precipice of a water crisis unseen in the his...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -2637,9 +2682,9 @@ Despite removing the phrase 'patient' from its press release, it is safe to say 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">It seems that every day now there is a news article on the internet about X company doing X discrimination or not believing X thing, and as a result, wants t...</p>
@@ -2663,9 +2708,9 @@ Despite removing the phrase 'patient' from its press release, it is safe to say 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">On Students For Liberty's blog I recently wrote an article on California's water crisis where I explain how water markets are not to blame for the water shor...</p>
@@ -2689,9 +2734,9 @@ Despite removing the phrase 'patient' from its press release, it is safe to say 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Little over a week ago, Lee Kuan Yew, the founding minister of Singapore, died at the age of 91. Respected by both the West and East, Mr. Yew led a tiny city...</p>
@@ -2715,9 +2760,9 @@ Despite removing the phrase 'patient' from its press release, it is safe to say 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 2.2.15.
@@ -2742,9 +2787,9 @@ We see their televised debates, their influence on the floor of Congr...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 1.13.15.
@@ -2769,9 +2814,9 @@ Let me be the first to lament the ‘fall’ of The Pirate Bay, a servic...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">This was originally written for the Students for Liberty blogging series, posted here on 11.14.14.
@@ -2796,9 +2841,9 @@ Over five weeks ago, students, young professionals, and in...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally published on Studentsforliberty.org on 10.2.14, check them out for more on the Drug War and beyond.
@@ -2823,9 +2868,9 @@ To the average American, criminal gangs and th...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">This post was written originally for the Student's for Liberty website in conjunction with their new campaign this September, 'End the Drug War.' Checkout St...</p>
@@ -2849,9 +2894,9 @@ To the average American, criminal gangs and th...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">In February of 2010, Michelle Obama initiated her 'Let's Move!' program to help fight the epidemic of childhood obesity in the United States. This move by th...</p>
@@ -2879,9 +2924,9 @@ To the average American, criminal gangs and th...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  6 minute read
-	
+
+
+  6 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">To the Edge: Legality, Legitimacy, and the Responses to the 2008 Financial Crisis was a book unlike any other historical analysis I have read so far. This wa...</p>
@@ -2905,9 +2950,9 @@ To the average American, criminal gangs and th...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Just an observation, in one part obvious, the other more in minutia:
@@ -2932,9 +2977,9 @@ Anecdotally, the US economy increasingly relies on the press releases of the US 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">On April 24th, the St. Louis Federal Reserve's popular data service, FRED, was hacked by unidentified assailants. For those who do not know, the Federal Rese...</p>
@@ -2958,9 +3003,9 @@ Anecdotally, the US economy increasingly relies on the press releases of the US 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">This past Tuesday, Richard Shelby, a republican senator from Alabama, introduced a draft bill to reform the Federal Reserve, a controversial topic across the...</p>
@@ -2984,9 +3029,9 @@ Anecdotally, the US economy increasingly relies on the press releases of the US 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -3015,9 +3060,9 @@ Despite removing the phrase 'patient' from its press release, it is safe to say 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">On May 7th, after a near two year ordeal, the ACLU successfully won their case against James Clapper, the head of the National Security Agency. The second ci...</p>
@@ -3041,9 +3086,9 @@ Despite removing the phrase 'patient' from its press release, it is safe to say 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">This past Tuesday, Richard Shelby, a republican senator from Alabama, introduced a draft bill to reform the Federal Reserve, a controversial topic across the...</p>
@@ -3067,9 +3112,9 @@ Despite removing the phrase 'patient' from its press release, it is safe to say 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  3 minute read
-	
+
+
+  3 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">I think most people sit in one of two camps when it comes to April 20th: either you absolutely hate it or you love it. On one hand, some people are extremely...</p>
@@ -3093,9 +3138,9 @@ Despite removing the phrase 'patient' from its press release, it is safe to say 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">I recently wrote about the Streisand Effect and the Indiana Pizza parlor that refuses to cater gay marriages. While not connected to the situation in Indiana...</p>
@@ -3119,9 +3164,9 @@ Despite removing the phrase 'patient' from its press release, it is safe to say 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description"> 
@@ -3146,9 +3191,9 @@ A recent study by the Pew Research Center called "Americans' Privacy Strategies 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -3174,9 +3219,9 @@ In his recent New York Times column, Paul Krugman states that there are no real 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  3 minute read
-	
+
+
+  3 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 4.1.15.
@@ -3201,9 +3246,9 @@ California looms at the precipice of a water crisis unseen in the his...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Heads up, the video is uncensored
@@ -3230,9 +3275,9 @@ Here is a link to the Guardian article where I first saw this st...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Little over a week ago, Lee Kuan Yew, the founding minister of Singapore, died at the age of 91. Respected by both the West and East, Mr. Yew led a tiny city...</p>
@@ -3256,9 +3301,9 @@ Here is a link to the Guardian article where I first saw this st...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 1.1.15. Happy New Year!
@@ -3283,9 +3328,9 @@ It would be redundant to list in a single article the...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  7 minute read
-	
+
+
+  7 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 12.15.14
@@ -3310,9 +3355,9 @@ It was almost two years ago that Edward Snowden began the NSA revela...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">This was originally written for the Students for Liberty blogging series, posted here on 11.14.14.
@@ -3337,9 +3382,9 @@ Over five weeks ago, students, young professionals, and in...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally published on Studentsforliberty.org on 10.2.14, check them out for more on the Drug War and beyond.
@@ -3364,9 +3409,9 @@ To the average American, criminal gangs and th...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally published in the Index of Kirksville, MO on 9.11.14
@@ -3395,9 +3440,9 @@ Four weeks since Michael Brown's murder in Ferguson, Missouri, and tensions are 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">This post was inspired by an article I read a while back on OrgTheory.net.
@@ -3423,9 +3468,9 @@ From drone deliveries to self-driving cars, automatization of daily life activit
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 12.6.14
@@ -3452,9 +3497,9 @@ On November 1st, the world lost an individual who...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Truman Index, this article has not been updated to reflect the new domestic victim of Ebola. It should be noted, however, that thi...</p>
@@ -3478,9 +3523,9 @@ On November 1st, the world lost an individual who...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">In February of 2010, Michelle Obama initiated her 'Let's Move!' program to help fight the epidemic of childhood obesity in the United States. This move by th...</p>
@@ -3508,9 +3553,9 @@ On November 1st, the world lost an individual who...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">For economic historians, the ability to write well comes almost as second nature. For Douglass C. North, the author and Nobel winning economist behind Struct...</p>
@@ -3534,9 +3579,9 @@ On November 1st, the world lost an individual who...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  7 minute read
-	
+
+
+  7 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">The Truth is rarely pure, and never simple&lt;/p&gt;
@@ -3566,9 +3611,9 @@ a general law, rule, principle, or criterion by which something i...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Wrote this for school, we had to choose a story from genesis to interpret ourselves and find an alternative meaning. This is mine. As usual, any criticism is...</p>
@@ -3592,9 +3637,9 @@ a general law, rule, principle, or criterion by which something i...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  6 minute read
-	
+
+
+  6 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">A temporary break from my coverage of Ayn Rand to commemorate someone much greater.
@@ -3623,9 +3668,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">For economic historians, the ability to write well comes almost as second nature. For Douglass C. North, the author and Nobel winning economist behind Struct...</p>
@@ -3649,9 +3694,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">A popular theorem within economics comes from Ronald Coase, an economist who won the Nobel for his analysis of the firm and revitalization of institutional a...</p>
@@ -3675,9 +3720,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">I have not seen too much discussion on this, but after a failed coup, Burundi's government is struggling with a question of legitimacy. The coup was a respon...</p>
@@ -3701,9 +3746,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Finished this book recently and wanted to make a general review on it. I will do my best to make a relatively small summation of a mammoth of a book.
@@ -3728,9 +3773,9 @@ Why I c...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">I did not have the time to write something for Earth Day, but luckily the Cato institute published an extremely balanced and explanatory article on the diffi...</p>
@@ -3754,9 +3799,9 @@ Why I c...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">At face, electing a military dictator may not fit the western conception of political progress. In Nigeria, however, the successful presidential election of ...</p>
@@ -3780,9 +3825,9 @@ Why I c...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 2.12.15.
@@ -3811,9 +3856,9 @@ Put human history on a timeline, and you’ll quickly realize that the...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -3838,9 +3883,9 @@ Independent Institute hosted their Challenge of Liberty Seminar this past week a
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -3865,9 +3910,9 @@ I began working for Independent Institute (no longer The Independent Institute)
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description"> 
@@ -3892,9 +3937,9 @@ I am currently sitting at Reagan Washington National Airport with three hours to
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description"> 
@@ -3919,9 +3964,9 @@ This year, after over a dozen failed applications to various organizations, I ap
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -3946,9 +3991,9 @@ After three days of socializing and watching lectures, I must say that FEE and C
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">As college approaches,
@@ -3977,9 +4022,9 @@ nor should I care for it...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">When I hear of death,
@@ -4018,9 +4063,9 @@ Life it goes.
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  6 minute read
-	
+
+
+  6 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">For those who don't already know, Brasil is the hosting nation of this year's World Cup. In today's semi-finals round between Brasil and Germany, and to ever...</p>
@@ -4048,9 +4093,9 @@ Life it goes.
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">SCOTUS rules in favor of raisin farmer, overturns 'New Deal' era law
@@ -4075,9 +4120,9 @@ Created in 1937, The Agriculture Marketing Agreement Act was one of the several 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Reading miscellanea:
@@ -4103,9 +4148,9 @@ I discussed this recently here, and while I am happy with last night's result, t
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Reading miscellanea:
@@ -4131,9 +4176,9 @@ An interesting article by Kemal Derviş, the VP of the Brookings Institute, on h
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">reading miscellanea:
@@ -4159,9 +4204,9 @@ Turns out most core voters go out to show Democrats/Republican...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  3 minute read
-	
+
+
+  3 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Last week's miscellanea:
@@ -4187,9 +4232,9 @@ Within the tech community most people know about the Computer Fraud and Abuse Ac
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  3 minute read
-	
+
+
+  3 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Last week's miscellanea:
@@ -4219,9 +4264,9 @@ Feidin Santana was the individual that recorded the brutal murder of Walter Scot
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  7 minute read
-	
+
+
+  7 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Since I last posted in November, I’ve been doing a lot of work with Python on a few projects of mine. As a result, I have created my own work-flow for Python...</p>
@@ -4249,9 +4294,9 @@ Feidin Santana was the individual that recorded the brutal murder of Walter Scot
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  9 minute read
-	
+
+
+  9 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description"> 
@@ -4277,9 +4322,9 @@ Throughout Humanity's existence, the search for the 'ideal...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  6 minute read
-	
+
+
+  6 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -4304,9 +4349,9 @@ This week I read Jon Krakauer's non-fiction book Into the Wild, a book about a m
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  11 minute read
-	
+
+
+  11 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">My short analysis of a theme from Ayn Rand's Atlas Shrugged. I am probably going to skip to something else for my next post, but I will probably be doing ano...</p>
@@ -4330,9 +4375,9 @@ This week I read Jon Krakauer's non-fiction book Into the Wild, a book about a m
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Wrote this for school, we had to choose a story from genesis to interpret ourselves and find an alternative meaning. This is mine. As usual, any criticism is...</p>
@@ -4356,9 +4401,9 @@ This week I read Jon Krakauer's non-fiction book Into the Wild, a book about a m
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  6 minute read
-	
+
+
+  6 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">A temporary break from my coverage of Ayn Rand to commemorate someone much greater.
@@ -4383,9 +4428,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  10 minute read
-	
+
+
+  10 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">About 2 weeks ago I finished Ayn Rand's Atlas Shrugged. Given its sheer length in pages, a whopping 1701(kindle edition), to make just a single post dedicate...</p>
@@ -4413,9 +4458,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  7 minute read
-	
+
+
+  7 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Genocide - any of the following acts committed with intent to destroy, in whole or in part, a national, ethnical, racial or religious group, as such: killing...</p>
@@ -4443,9 +4488,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">A book I just recently finished, After War: the Political Economy of Exporting Democracy, has a lot of insight into the institutional and behavioral theory b...</p>
@@ -4473,9 +4518,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">[caption id="attachment_1075" align="aligncenter" width="620"] A picture I took of Monroe Hall, where all of KFP's lectures take place[/caption]
@@ -4500,9 +4545,9 @@ The first sp...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -4531,9 +4576,9 @@ Man’s greatest burden is existence. His greatest struggle is coping with this.
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  11 minute read
-	
+
+
+  11 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">An original piece of fiction by me, partially inspired by Albert Camus's short story, The Stranger. I haven't read the book in a while, but I made sure to mi...</p>
@@ -4557,9 +4602,9 @@ Man’s greatest burden is existence. His greatest struggle is coping with this.
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Truth is a mobile army of metaphors, metonymies, anthropomorphisms, in short, a sum of human relations which have been subjected to poetic and rhetorical int...</p>
@@ -4583,9 +4628,9 @@ Man’s greatest burden is existence. His greatest struggle is coping with this.
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  9 minute read
-	
+
+
+  9 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description"> 
@@ -4611,9 +4656,9 @@ Throughout Humanity's existence, the search for the 'ideal...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  6 minute read
-	
+
+
+  6 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -4638,9 +4683,9 @@ This week I read Jon Krakauer's non-fiction book Into the Wild, a book about a m
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  11 minute read
-	
+
+
+  11 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">My short analysis of a theme from Ayn Rand's Atlas Shrugged. I am probably going to skip to something else for my next post, but I will probably be doing ano...</p>
@@ -4664,9 +4709,9 @@ This week I read Jon Krakauer's non-fiction book Into the Wild, a book about a m
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  6 minute read
-	
+
+
+  6 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">A temporary break from my coverage of Ayn Rand to commemorate someone much greater.
@@ -4691,9 +4736,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  10 minute read
-	
+
+
+  10 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">About 2 weeks ago I finished Ayn Rand's Atlas Shrugged. Given its sheer length in pages, a whopping 1701(kindle edition), to make just a single post dedicate...</p>
@@ -4717,9 +4762,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  7 minute read
-	
+
+
+  7 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Before I start, may I say thank you for reading my very first post on WordPress! I hope this is something that grows with me, and that you'll tag along for t...</p>
@@ -4747,9 +4792,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  3 minute read
-	
+
+
+  3 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Joseph Stiglitz recently wrote in the Guardian how the European Union and International Monetary Fund’s treatment of Greece was anti-democratic.  I disagree,...</p>
@@ -4777,9 +4822,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">A book I just recently finished, After War: the Political Economy of Exporting Democracy, has a lot of insight into the institutional and behavioral theory b...</p>
@@ -4803,9 +4848,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  3 minute read
-	
+
+
+  3 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">There is a popular joke in academia about the 'imperialism' of economics. Just about any topic and field has been covered by economists in one way or another...</p>
@@ -4829,9 +4874,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">John Hopkins’ student government recently 'banned' Chick-fil-A, the chicken sandwich fast food restaurant based out of Georgia, from opening a franchise in t...</p>
@@ -4859,9 +4904,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  3 minute read
-	
+
+
+  3 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Joseph Stiglitz recently wrote in the Guardian how the European Union and International Monetary Fund’s treatment of Greece was anti-democratic.  I disagree,...</p>
@@ -4885,9 +4930,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">As discussed in the Electronic Frontier Foundation's (EFF) blog post, the EFF and American Civil Liberties Union (ACLU) recently won a decisive victory for t...</p>
@@ -4911,9 +4956,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">John Hopkins’ student government recently 'banned' Chick-fil-A, the chicken sandwich fast food restaurant based out of Georgia, from opening a franchise in t...</p>
@@ -4937,9 +4982,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">An article on The Intercept covered an argument privacy advocates under-use: large dragnet based surveillance creates a 'needle in the haystack' effect. Give...</p>
@@ -4963,9 +5008,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">On May 7th, after a near two year ordeal, the ACLU successfully won their case against James Clapper, the head of the National Security Agency. The second ci...</p>
@@ -4989,9 +5034,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  3 minute read
-	
+
+
+  3 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">I think most people sit in one of two camps when it comes to April 20th: either you absolutely hate it or you love it. On one hand, some people are extremely...</p>
@@ -5015,9 +5060,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">I recently wrote about the Streisand Effect and the Indiana Pizza parlor that refuses to cater gay marriages. While not connected to the situation in Indiana...</p>
@@ -5041,9 +5086,9 @@ Note: This is my brief over Absurdism. Although I try to stay true to Abs...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -5069,9 +5114,9 @@ In his recent New York Times column, Paul Krugman states that there are no real 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  3 minute read
-	
+
+
+  3 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 4.1.15.
@@ -5096,9 +5141,9 @@ California looms at the precipice of a water crisis unseen in the his...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">At face, electing a military dictator may not fit the western conception of political progress. In Nigeria, however, the successful presidential election of ...</p>
@@ -5122,9 +5167,9 @@ California looms at the precipice of a water crisis unseen in the his...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">It seems that every day now there is a news article on the internet about X company doing X discrimination or not believing X thing, and as a result, wants t...</p>
@@ -5148,9 +5193,9 @@ California looms at the precipice of a water crisis unseen in the his...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">On Students For Liberty's blog I recently wrote an article on California's water crisis where I explain how water markets are not to blame for the water shor...</p>
@@ -5174,9 +5219,9 @@ California looms at the precipice of a water crisis unseen in the his...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Little over a week ago, Lee Kuan Yew, the founding minister of Singapore, died at the age of 91. Respected by both the West and East, Mr. Yew led a tiny city...</p>
@@ -5200,9 +5245,9 @@ California looms at the precipice of a water crisis unseen in the his...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 2.12.15.
@@ -5227,9 +5272,9 @@ Put human history on a timeline, and you’ll quickly realize that the...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 2.2.15.
@@ -5254,9 +5299,9 @@ We see their televised debates, their influence on the floor of Congr...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 1.13.15.
@@ -5281,9 +5326,9 @@ Let me be the first to lament the ‘fall’ of The Pirate Bay, a servic...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 1.1.15. Happy New Year!
@@ -5308,9 +5353,9 @@ It would be redundant to list in a single article the...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 12.6.14
@@ -5337,9 +5382,9 @@ On November 1st, the world lost an individual who...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  7 minute read
-	
+
+
+  7 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">This was originally written for the Students for Liberty blogging series, posted here on 10.7.14
@@ -5365,9 +5410,9 @@ In light of the Grand Jury decisions regar...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">For SFL's blogging series, I had the wonderful opportunity of interviewing Chelsea McCoy and her friend Greg Fister over their experience with civil disobedi...</p>
@@ -5391,9 +5436,9 @@ In light of the Grand Jury decisions regar...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">This post was written originally for the Student's for Liberty website in conjunction with their new campaign this September, 'End the Drug War.' Checkout St...</p>
@@ -5417,9 +5462,9 @@ In light of the Grand Jury decisions regar...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  7 minute read
-	
+
+
+  7 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Genocide - any of the following acts committed with intent to destroy, in whole or in part, a national, ethnical, racial or religious group, as such: killing...</p>
@@ -5443,9 +5488,9 @@ In light of the Grand Jury decisions regar...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  6 minute read
-	
+
+
+  6 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">For those who don't already know, Brasil is the hosting nation of this year's World Cup. In today's semi-finals round between Brasil and Germany, and to ever...</p>
@@ -5469,9 +5514,9 @@ In light of the Grand Jury decisions regar...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">This Fourth of July is much like every one prior. There's a unifying sense of solidarity in this nation, irregardless of political alignment, wealth, and rac...</p>
@@ -5495,9 +5540,9 @@ In light of the Grand Jury decisions regar...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">In February of 2010, Michelle Obama initiated her 'Let's Move!' program to help fight the epidemic of childhood obesity in the United States. This move by th...</p>
@@ -5521,9 +5566,9 @@ In light of the Grand Jury decisions regar...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  9 minute read
-	
+
+
+  9 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description"> 
@@ -5549,9 +5594,9 @@ Throughout Humanity's existence, the search for the 'ideal...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  7 minute read
-	
+
+
+  7 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">The Truth is rarely pure, and never simple&lt;/p&gt;
@@ -5581,9 +5626,9 @@ a general law, rule, principle, or criterion by which something i...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  11 minute read
-	
+
+
+  11 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">My short analysis of a theme from Ayn Rand's Atlas Shrugged. I am probably going to skip to something else for my next post, but I will probably be doing ano...</p>
@@ -5607,9 +5652,9 @@ a general law, rule, principle, or criterion by which something i...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  10 minute read
-	
+
+
+  10 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">About 2 weeks ago I finished Ayn Rand's Atlas Shrugged. Given its sheer length in pages, a whopping 1701(kindle edition), to make just a single post dedicate...</p>
@@ -5633,9 +5678,9 @@ a general law, rule, principle, or criterion by which something i...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  7 minute read
-	
+
+
+  7 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Before I start, may I say thank you for reading my very first post on WordPress! I hope this is something that grows with me, and that you'll tag along for t...</p>
@@ -5663,9 +5708,9 @@ a general law, rule, principle, or criterion by which something i...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  7 minute read
-	
+
+
+  7 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 12.15.14
@@ -5694,9 +5739,9 @@ It was almost two years ago that Edward Snowden began the NSA revela...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  7 minute read
-	
+
+
+  7 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Since I last posted in November, I’ve been doing a lot of work with Python on a few projects of mine. As a result, I have created my own work-flow for Python...</p>
@@ -5724,9 +5769,9 @@ It was almost two years ago that Edward Snowden began the NSA revela...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  3 minute read
-	
+
+
+  3 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">There is a popular joke in academia about the 'imperialism' of economics. Just about any topic and field has been covered by economists in one way or another...</p>
@@ -5754,9 +5799,9 @@ It was almost two years ago that Edward Snowden began the NSA revela...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  7 minute read
-	
+
+
+  7 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Since I last posted in November, I’ve been doing a lot of work with Python on a few projects of mine. As a result, I have created my own work-flow for Python...</p>
@@ -5784,9 +5829,9 @@ It was almost two years ago that Edward Snowden began the NSA revela...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Peter Boettke is an economist out of George Mason University and he specializes in the history of economic thought and institutional economics. Boettke was l...</p>
@@ -5810,9 +5855,9 @@ It was almost two years ago that Edward Snowden began the NSA revela...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  6 minute read
-	
+
+
+  6 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">To the Edge: Legality, Legitimacy, and the Responses to the 2008 Financial Crisis was a book unlike any other historical analysis I have read so far. This wa...</p>
@@ -5836,9 +5881,9 @@ It was almost two years ago that Edward Snowden began the NSA revela...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  3 minute read
-	
+
+
+  3 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">There is a popular joke in academia about the 'imperialism' of economics. Just about any topic and field has been covered by economists in one way or another...</p>
@@ -5862,9 +5907,9 @@ It was almost two years ago that Edward Snowden began the NSA revela...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">For economic historians, the ability to write well comes almost as second nature. For Douglass C. North, the author and Nobel winning economist behind Struct...</p>
@@ -5888,9 +5933,9 @@ It was almost two years ago that Edward Snowden began the NSA revela...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">SCOTUS rules in favor of raisin farmer, overturns 'New Deal' era law
@@ -5915,9 +5960,9 @@ Created in 1937, The Agriculture Marketing Agreement Act was one of the several 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Reading miscellanea:
@@ -5943,9 +5988,9 @@ I discussed this recently here, and while I am happy with last night's result, t
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Reading miscellanea:
@@ -5971,9 +6016,9 @@ An interesting article by Kemal Derviş, the VP of the Brookings Institute, on h
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">reading miscellanea:
@@ -5999,9 +6044,9 @@ Turns out most core voters go out to show Democrats/Republican...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Finished this book recently and wanted to make a general review on it. I will do my best to make a relatively small summation of a mammoth of a book.
@@ -6026,9 +6071,9 @@ Why I c...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Two weeks ago, Tyler Cowen and Alex Tabarrok published a fantastic essay on the end of asymmetric information, its affect on markets, and how policy makers s...</p>
@@ -6052,9 +6097,9 @@ Why I c...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  3 minute read
-	
+
+
+  3 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Last week's miscellanea:
@@ -6080,9 +6125,9 @@ Within the tech community most people know about the Computer Fraud and Abuse Ac
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  3 minute read
-	
+
+
+  3 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Last week's miscellanea:
@@ -6112,9 +6157,9 @@ Feidin Santana was the individual that recorded the brutal murder of Walter Scot
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  3 minute read
-	
+
+
+  3 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 4.1.15.
@@ -6139,9 +6184,9 @@ California looms at the precipice of a water crisis unseen in the his...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 2.12.15.
@@ -6166,9 +6211,9 @@ Put human history on a timeline, and you’ll quickly realize that the...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 2.2.15.
@@ -6193,9 +6238,9 @@ We see their televised debates, their influence on the floor of Congr...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 1.13.15.
@@ -6220,9 +6265,9 @@ Let me be the first to lament the ‘fall’ of The Pirate Bay, a servic...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  7 minute read
-	
+
+
+  7 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 12.15.14
@@ -6247,9 +6292,9 @@ It was almost two years ago that Edward Snowden began the NSA revela...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  7 minute read
-	
+
+
+  7 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">This was originally written for the Students for Liberty blogging series, posted here on 10.7.14
@@ -6275,9 +6320,9 @@ In light of the Grand Jury decisions regar...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">This was originally written for the Students for Liberty blogging series, posted here on 11.14.14.
@@ -6302,9 +6347,9 @@ Over five weeks ago, students, young professionals, and in...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally published on Studentsforliberty.org on 10.2.14, check them out for more on the Drug War and beyond.
@@ -6329,9 +6374,9 @@ To the average American, criminal gangs and th...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Truman Index, this article has not been updated to reflect the new domestic victim of Ebola. It should be noted, however, that thi...</p>
@@ -6355,9 +6400,9 @@ To the average American, criminal gangs and th...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally published in the Index of Kirksville, MO on 9.11.14
@@ -6382,9 +6427,9 @@ Four weeks since Michael Brown's murder in Ferguson, Missouri, and tensions are 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">This post was written originally for the Student's for Liberty website in conjunction with their new campaign this September, 'End the Drug War.' Checkout St...</p>
@@ -6412,9 +6457,9 @@ Four weeks since Michael Brown's murder in Ferguson, Missouri, and tensions are 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">This post was inspired by an article I read a while back on OrgTheory.net.
@@ -6440,9 +6485,9 @@ From drone deliveries to self-driving cars, automatization of daily life activit
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">An article on The Intercept covered an argument privacy advocates under-use: large dragnet based surveillance creates a 'needle in the haystack' effect. Give...</p>
@@ -6466,9 +6511,9 @@ From drone deliveries to self-driving cars, automatization of daily life activit
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">On April 24th, the St. Louis Federal Reserve's popular data service, FRED, was hacked by unidentified assailants. For those who do not know, the Federal Rese...</p>
@@ -6492,9 +6537,9 @@ From drone deliveries to self-driving cars, automatization of daily life activit
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">On May 7th, after a near two year ordeal, the ACLU successfully won their case against James Clapper, the head of the National Security Agency. The second ci...</p>
@@ -6518,9 +6563,9 @@ From drone deliveries to self-driving cars, automatization of daily life activit
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Two weeks ago, Tyler Cowen and Alex Tabarrok published a fantastic essay on the end of asymmetric information, its affect on markets, and how policy makers s...</p>
@@ -6544,9 +6589,9 @@ From drone deliveries to self-driving cars, automatization of daily life activit
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description"> 
@@ -6571,9 +6616,9 @@ Everyone knows that when you download a free game on your phone, there is a soli
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description"> 
@@ -6598,9 +6643,9 @@ A recent study by the Pew Research Center called "Americans' Privacy Strategies 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally written for the Students For Liberty Blogging Series, posted here on 1.13.15.
@@ -6625,9 +6670,9 @@ Let me be the first to lament the ‘fall’ of The Pirate Bay, a servic...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  7 minute read
-	
+
+
+  7 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">This was originally written for the Students for Liberty blogging series, posted here on 10.7.14
@@ -6653,9 +6698,9 @@ In light of the Grand Jury decisions regar...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Originally published in the Index of Kirksville, MO on 9.11.14
@@ -6684,9 +6729,9 @@ Four weeks since Michael Brown's murder in Ferguson, Missouri, and tensions are 
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -6711,9 +6756,9 @@ Independent Institute hosted their Challenge of Liberty Seminar this past week a
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -6738,9 +6783,9 @@ I began working for Independent Institute (no longer The Independent Institute)
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description"> 
@@ -6765,9 +6810,9 @@ I am currently sitting at Reagan Washington National Airport with three hours to
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  5 minute read
-	
+
+
+  5 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">[caption id="attachment_1075" align="aligncenter" width="620"] A picture I took of Monroe Hall, where all of KFP's lectures take place[/caption]
@@ -6792,9 +6837,9 @@ The first sp...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description"> 
@@ -6819,9 +6864,9 @@ This year, after over a dozen failed applications to various organizations, I ap
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -6846,9 +6891,9 @@ After three days of socializing and watching lectures, I must say that FEE and C
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">With everything I will be doing this summer, I think a travelogue will be a fun way of reflecting on what I learn and see.
@@ -6878,9 +6923,9 @@ I am currently at Hartsfield-Jac...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -6909,9 +6954,9 @@ Sorry for the lack of material lately, I've been extremely busy these past two w
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">I eagerly await till then, but school is dreadful and takes priority sadly.
@@ -6943,9 +6988,9 @@ Lacking Material
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -6970,9 +7015,9 @@ Independent Institute hosted their Challenge of Liberty Seminar this past week a
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -6997,9 +7042,9 @@ I began working for Independent Institute (no longer The Independent Institute)
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  2 minute read
-	
+
+
+  2 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description"> 
@@ -7024,9 +7069,9 @@ I am currently sitting at Reagan Washington National Airport with three hours to
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description"> 
@@ -7051,9 +7096,9 @@ This year, after over a dozen failed applications to various organizations, I ap
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -7078,9 +7123,9 @@ After three days of socializing and watching lectures, I must say that FEE and C
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">With everything I will be doing this summer, I think a travelogue will be a fun way of reflecting on what I learn and see.
@@ -7106,9 +7151,9 @@ I am currently at Hartsfield-Jac...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">I am almost done with my second semester of college, and so far it has been an interesting experience. A lot of things are changing, especially the responsib...</p>
@@ -7132,9 +7177,9 @@ I am currently at Hartsfield-Jac...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">The reason I've been posting random musings recently is threefold:
@@ -7164,9 +7209,9 @@ I was preparing for college/am now at college, which has stymied temporarily the
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">The reason I've been posting random musings recently is threefold:
@@ -7192,9 +7237,9 @@ I was preparing for college/am now at college, which has stymied temporarily the
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">
@@ -7223,9 +7268,9 @@ Man’s greatest burden is existence. His greatest struggle is coping with this.
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">I’m at this point in my life
@@ -7255,9 +7300,9 @@ While everything is still the sa...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">As college approaches,
@@ -7286,9 +7331,9 @@ nor should I care for it...</p>
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">When I hear of death,
@@ -7323,9 +7368,9 @@ Life it goes.
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  11 minute read
-	
+
+
+  11 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">An original piece of fiction by me, partially inspired by Albert Camus's short story, The Stranger. I haven't read the book in a while, but I made sure to mi...</p>
@@ -7349,9 +7394,9 @@ Life it goes.
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Wrote this for school, we had to choose a story from genesis to interpret ourselves and find an alternative meaning. This is mine. As usual, any criticism is...</p>
@@ -7379,9 +7424,9 @@ Life it goes.
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  6 minute read
-	
+
+
+  6 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">For those who don't already know, Brasil is the hosting nation of this year's World Cup. In today's semi-finals round between Brasil and Germany, and to ever...</p>
@@ -7405,9 +7450,9 @@ Life it goes.
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  4 minute read
-	
+
+
+  4 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">This Fourth of July is much like every one prior. There's a unifying sense of solidarity in this nation, irregardless of political alignment, wealth, and rac...</p>
@@ -7435,9 +7480,9 @@ Life it goes.
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  11 minute read
-	
+
+
+  11 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">My short analysis of a theme from Ayn Rand's Atlas Shrugged. I am probably going to skip to something else for my next post, but I will probably be doing ano...</p>
@@ -7465,9 +7510,9 @@ Life it goes.
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  1 minute read
-	
+
+
+  1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Alright, knocking on wood, but I do believe I am finished migrating my old blog
@@ -7494,9 +7539,9 @@ and have managed to get my new theme up and running.
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">the Joys of Webprogramming
@@ -7522,9 +7567,9 @@ and have managed to get my new theme up and running.
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
 
 
-  
-	  less than 1 minute read
-	
+
+
+  less than 1 minute read
 </p>
     
     <p class="archive__item-excerpt" itemprop="description">Thanks for stopping by Ageof.Info! This is a new website hosted on my home
