@@ -113,6 +113,7 @@ include:
   - .htaccess
   - _pages
 exclude:
+  - /roughDrafts # don't process my rough drafts, duh
   - "*.sublime-project"
   - "*.sublime-workspace"
   - vendor
