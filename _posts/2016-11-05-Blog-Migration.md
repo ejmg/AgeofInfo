@@ -8,7 +8,7 @@ tags:
 - jekyll
 ---
 
-## the Joys of Webprogramming
+## the joys of web programming
 
 I've had my new blog for just a few days and managed to migrate my old one to it, though the process was far from painless or straightforward. Being new to web development + Jekyll as a platform = plenty of confusion on my part. That said, I got all of my old blog posts moved over as well as most of the images. 
 

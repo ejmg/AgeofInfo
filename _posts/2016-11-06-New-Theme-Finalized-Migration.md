@@ -2,7 +2,7 @@
 layout: single
 title:  "New Theme and Done Moving"
 date:   2016-11-06 20:42:06
-categories: update
+categories: updates
 tags: blog
 ---
 
