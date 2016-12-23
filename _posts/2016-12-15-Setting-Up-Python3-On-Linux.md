@@ -3,12 +3,14 @@ layout: single
 title:  "Tutorial: Setting Up Virtualenv and Virtualenvwrapper on Linux for Python 3.x"
 date:   2016-11-06 20:42:06
 categories: 
-- Programming 
-- Linux
-- Python
+- programming 
+- linux
+- python
+- tutorial
 tags: 
-- tutorial 
 - ubuntu 
+- bots
+- twitter
 - install
 ---
 

@@ -2,7 +2,7 @@
 layout: single
 title: "Blog Migration"
 date: 2016-11-05 23:02:00
-categories: update
+categories: updates
 tags:
 - blog
 - jekyll

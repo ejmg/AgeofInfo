@@ -753,10 +753,13 @@
 <loc>http://ageof.info/tags/jekyll/</loc>
 </url>
 <url>
-<loc>http://ageof.info/tags/tutorial/</loc>
+<loc>http://ageof.info/tags/ubuntu/</loc>
 </url>
 <url>
-<loc>http://ageof.info/tags/ubuntu/</loc>
+<loc>http://ageof.info/tags/bots/</loc>
+</url>
+<url>
+<loc>http://ageof.info/tags/twitter/</loc>
 </url>
 <url>
 <loc>http://ageof.info/tags/install/</loc>
@@ -916,6 +919,9 @@
 </url>
 <url>
 <loc>http://ageof.info/categories/python/</loc>
+</url>
+<url>
+<loc>http://ageof.info/categories/tutorial/</loc>
 </url>
 <url>
 <loc>http://ageof.info/page2/</loc>
