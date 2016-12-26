@@ -30,7 +30,7 @@ I want to make it clear, however, that I am not fetishizing heterodox theory for
 Friedman and Kraus' book is split into four sections, paraphrased as the following:
 
 1. Explaining the problems behind the general theories of too big to fail, corporate compensation, deregulation, Fannie Mae and Freddie Mac, and "market irrationality" as causes of the financial crisis.
-2. Explaining the regulations behind capital minimums for banks, the regulatory monopoly of credit rating agencies, and market-to-market accounting.
+2. Explaining the regulations behind capital minimums for banks and the regulatory monopoly of credit rating agencies as the cause of the SPM bubble.
 3. How capital minimums, credit rating regulations, and market-to-market accounting created a perfect storm of complexity that hid risk from banks and regulators alike.
 4. The major problems facing a regulatory regime faced with complex economic systems and the consequences of legislating solutions to problems that are inherently heterodox and uncertain in nature.
 
