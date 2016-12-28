@@ -9,8 +9,6 @@ categories:
 - tutorial
 tags: 
 - ubuntu 
-- bots
-- twitter
 - install
 ---
 
