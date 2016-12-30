@@ -199,7 +199,6 @@ Your bot should now tweet again with the number of followers you have and the nu
 ```python
 def getTimeline(api, user):
     tweets = api.user_timeline(user.screen_name, count=100)
-    tweets = [tweet for tweet in tweets]
     print(tweets[0])
     return tweets
 ```
