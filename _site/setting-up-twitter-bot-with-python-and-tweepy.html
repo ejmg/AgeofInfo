@@ -28,8 +28,8 @@
 <meta property="og:title" content="Tutorial: Setting Up a Twitter Bot Using Python and Tweepy">
 
 
-  <link rel="canonical" href="http://localhost:4000/setting-up-twitter-bot-with-python-and-tweepy">
-  <meta property="og:url" content="http://localhost:4000/setting-up-twitter-bot-with-python-and-tweepy">
+  <link rel="canonical" href="http://ageof.info/setting-up-twitter-bot-with-python-and-tweepy">
+  <meta property="og:url" content="http://ageof.info/setting-up-twitter-bot-with-python-and-tweepy">
 
 
 
@@ -40,7 +40,7 @@
   <meta name="twitter:site" content="@eliasjmgarcia">
   <meta name="twitter:title" content="Tutorial: Setting Up a Twitter Bot Using Python and Tweepy">
   <meta name="twitter:description" content="In my previous post about virtualenv and virtualenvwrapper, I used the Tweepy module in the basic demonstration of how virtual environments work. Building off of that, I want to now create a tutorial for making a basic Twitter bot using Tweepy!">
-  <meta name="twitter:url" content="http://localhost:4000/setting-up-twitter-bot-with-python-and-tweepy">
+  <meta name="twitter:url" content="http://ageof.info/setting-up-twitter-bot-with-python-and-tweepy">
 
   
     <meta name="twitter:card" content="summary">
@@ -74,7 +74,7 @@
       "@context" : "http://schema.org",
       "@type" : "Person",
       "name" : "Elias Garcia",
-      "url" : "http://localhost:4000",
+      "url" : "http://ageof.info",
       "sameAs" : null
     }
   </script>
@@ -87,7 +87,7 @@
 <!-- end SEO -->
 
 
-<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Age of Info Feed">
+<link href="http://ageof.info/feed.xml" type="application/atom+xml" rel="alternate" title="Age of Info Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -99,7 +99,7 @@
 </script>
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+<link rel="stylesheet" href="http://ageof.info/assets/css/main.css">
 
 <meta http-equiv="cleartype" content="on">
     <!-- start custom head snippets -->
@@ -120,19 +120,19 @@
       <nav id="site-nav" class="greedy-nav">
         <button><div class="navicon"></div></button>
         <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Age of Info</a></li>
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://ageof.info/">Age of Info</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://localhost:4000/about/">About</a></li>
+            <li class="masthead__menu-item"><a href="http://ageof.info/about/">About</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://localhost:4000/assets/pdfs/resume.pdf">Résumé</a></li>
+            <li class="masthead__menu-item"><a href="http://ageof.info/assets/pdfs/resume.pdf">Résumé</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://localhost:4000/opportunities/">Opportunities</a></li>
+            <li class="masthead__menu-item"><a href="http://ageof.info/opportunities/">Opportunities</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://localhost:4000/categories/">Categories</a></li>
+            <li class="masthead__menu-item"><a href="http://ageof.info/categories/">Categories</a></li>
           
         </ul>
         <ul class="hidden-links hidden"></ul>
@@ -155,7 +155,7 @@
   
     <div class="author__avatar">
       
-        <img src="http://localhost:4000/assets/images/bio-photo.jpg#%20path%20of%20avatar%20image,%20e.g.%20%22/assets/images/bio-photo.jpg%22" class="author__avatar" alt="Elias Garcia" itemprop="image">
+        <img src="http://ageof.info/assets/images/bio-photo.jpg#%20path%20of%20avatar%20image,%20e.g.%20%22/assets/images/bio-photo.jpg%22" class="author__avatar" alt="Elias Garcia" itemprop="image">
       
     </div>
   
@@ -351,7 +351,7 @@
 
 <p>Rather than making a separate email to make a new twitter account, use an <strong>account alias.</strong> This saves you the trouble of having to create another email account (which has its own password), and managing which twitter accounts go with which email, and instead simplifies your bots’ email to a simple alias of yours. Say your email is <code class="highlighter-rouge">example@example.com</code>. To make an alias with Twitter, go to their <a href="https://twitter.com/signup">sign up page</a> like you would normally, and use your email with <code class="highlighter-rouge">+someAliasHere</code> as the email you use as shown:</p>
 
-<p><img src="http://localhost:4000/assets/images/posts/2016-12-28/signup.png" alt="signup" /></p>
+<p><img src="http://ageof.info/assets/images/posts/2016-12-28/signup.png" alt="signup" /></p>
 
 <p>From there, setup your twitter account as desired (accounts you want to follow, AVI, bio, settings, etcetera). You should receive a notification in your email account saying you created a twitter account as if it was your first twitter. Congrats!</p>
 
@@ -359,11 +359,11 @@
 
 <p>Now that you have an account you can use to run a bot on, you have to authorize it so that the bot can use it. Make sure you are logged in with the account you want to run the bot on and go to <a href="https://apps.twitter.com/">https://apps.twitter.com/</a>. You should immediately see a page saying you don’t have any apps and a button asking if you want to create one. Click it and fill it in with the information you want (none of this really matters for a simple bot). For my demo bot which I ran on my main account, I filled it in as follows:</p>
 
-<p><img src="http://localhost:4000/assets/images/posts/2016-12-28/create-app.png" alt="create-app" /></p>
+<p><img src="http://ageof.info/assets/images/posts/2016-12-28/create-app.png" alt="create-app" /></p>
 
 <p>Accept the user agreement and click okay. The page will immediately change and present you with your app dashboard. Switch over to the tab called <code class="highlighter-rouge">keys and access tokens</code>, where you will find the authorization information your bot will need. This comes in the form of <code class="highlighter-rouge">Consumer Key</code>, <code class="highlighter-rouge">Consumer Secret</code>, <code class="highlighter-rouge">Access Token</code>, and <code class="highlighter-rouge">Access Token Secret</code>. To get the latter two, you will have to click the button at the bottom of the page to generate them (you will not have them by default, don’t worry when you don’t see them). I’ve boxed in red the relevant information below:</p>
 
-<p><img src="http://localhost:4000/assets/images/posts/2016-12-28/auth-info.png" alt="auth-info" /></p>
+<p><img src="http://ageof.info/assets/images/posts/2016-12-28/auth-info.png" alt="auth-info" /></p>
 
 <p>In case it isn’t obvious by the picture and the warning Twitter gives you, <strong>do not share these keys with anyone</strong>. While the non-secret keys/tokens are technically okay to know publicly, it doesn’t hurt to be on the safe side. Now, keep this page open or save these codes somewhere as you will need them in just a moment. <strong>ALSO</strong>, your access token may have a dash in it - <strong>don’t</strong> delete it. It was intentional and is a part of the token itself. Just copy and paste the info as given.</p>
 
@@ -375,13 +375,13 @@
 
 <p>Making sure to use Python 3.4.2 or newer, create a virtualenv (or don’t, but you should) and install tweepy using <code class="highlighter-rouge">pip3 install tweepy</code>. If you are using my repo, you can also just use <code class="highlighter-rouge">pip3 install -r requirements.txt</code>, but since it’s only one module in this case, it really doesn’t make a difference. It should only take a few seconds for the module to install and your terminal should show output confirming its installation:</p>
 
-<p><img src="http://localhost:4000/assets/images/posts/2016-12-28/tweepy.png" alt="tweepy" /></p>
+<p><img src="http://ageof.info/assets/images/posts/2016-12-28/tweepy.png" alt="tweepy" /></p>
 
 <h3 id="step-21-create-a-secretpy-file">Step 2.1: Create a <code class="highlighter-rouge">secret.py</code> file</h3>
 
 <p>Remember those authorization tokens I told you to save earlier? We’re going to need them in order to twee with your bot. Make a <code class="highlighter-rouge">secret.py</code> file in your working directory and insert <code class="highlighter-rouge">Consumer Key</code> as <code class="highlighter-rouge">CONSUMER_KEY</code>, <code class="highlighter-rouge">Consumer Secret</code> as <code class="highlighter-rouge">CONSUMER_SECRET</code>, and so forth as shown below with X’s in place of the codes given:</p>
 
-<p><img src="http://localhost:4000/assets/images/posts/2016-12-28/secret.png" alt="secret" /></p>
+<p><img src="http://ageof.info/assets/images/posts/2016-12-28/secret.png" alt="secret" /></p>
 
 <p>Save the file and move on. If you are using Github (and you didn’t fork/clone my repo and your repo isn’t private) you should make a .gitignore file with <code class="highlighter-rouge">secret.py</code> in it. You wouldn’t want the world to see your tokens!</p>
 
@@ -439,7 +439,7 @@
 
 <p>Test it out!</p>
 
-<p><img src="http://localhost:4000/assets/images/posts/2016-12-28/helloworld.png" alt="helloworld" /></p>
+<p><img src="http://ageof.info/assets/images/posts/2016-12-28/helloworld.png" alt="helloworld" /></p>
 
 <h2 id="step-3-retrieving-account-information-and-searching-your-tweets">Step 3: Retrieving Account Information and Searching Your Tweets</h2>
 
@@ -455,7 +455,7 @@
 
 <p>What we just did is retrieve the <code class="highlighter-rouge">user</code> object associated with the <code class="highlighter-rouge">api</code> object we authenticated, aka your bot’s account. There’s a lot of interesting info stored within this object which is why I had it printed to your terminal, which you should totally check out. Here’s what mine looks like:</p>
 
-<p><img src="http://localhost:4000/assets/images/posts/2016-12-28/user.png" alt="user" /></p>
+<p><img src="http://ageof.info/assets/images/posts/2016-12-28/user.png" alt="user" /></p>
 
 <p>There are a lot of fields within your <code class="highlighter-rouge">user</code> object, such as your background image url, your last tweet, your bio, your user image url, whether you have 2FA enabled (whoops), and more. For now, let’s checkout your screen_name by entering the following into your driver:</p>
 
@@ -577,7 +577,7 @@
 
 <p>Congrats, you did it! If everything ran as expected, every time you run the bot, you should get a string of tweets like these:</p>
 
-<p><img src="http://localhost:4000/assets/images/posts/2016-12-28/tweets.png" alt="tweets" /></p>
+<p><img src="http://ageof.info/assets/images/posts/2016-12-28/tweets.png" alt="tweets" /></p>
 
 <p>Now that you have your bot running, you can experiment. I tried to modularize my code to what extent it could be done, so go ahead and tweak at it and see what happens. Try searching for different terms, looking up different information, see how many tweets you can pull at once, and, hell, figure out what the Twitter API’s limit is! ;)</p>
 
@@ -602,15 +602,15 @@
     
       
       
-      <a href="http://localhost:4000/tags/bots" class="page__taxonomy-item" rel="tag">bots</a><span class="sep">, </span>
+      <a href="http://ageof.info/tags/bots" class="page__taxonomy-item" rel="tag">bots</a><span class="sep">, </span>
     
       
       
-      <a href="http://localhost:4000/tags/tweepy" class="page__taxonomy-item" rel="tag">tweepy</a><span class="sep">, </span>
+      <a href="http://ageof.info/tags/tweepy" class="page__taxonomy-item" rel="tag">tweepy</a><span class="sep">, </span>
     
       
       
-      <a href="http://localhost:4000/tags/twitter" class="page__taxonomy-item" rel="tag">twitter</a>
+      <a href="http://ageof.info/tags/twitter" class="page__taxonomy-item" rel="tag">twitter</a>
     
     </span>
   </p>
@@ -631,15 +631,15 @@
     
       
       
-      <a href="http://localhost:4000/categories/programming" class="page__taxonomy-item" rel="tag">programming</a><span class="sep">, </span>
+      <a href="http://ageof.info/categories/programming" class="page__taxonomy-item" rel="tag">programming</a><span class="sep">, </span>
     
       
       
-      <a href="http://localhost:4000/categories/python" class="page__taxonomy-item" rel="tag">python</a><span class="sep">, </span>
+      <a href="http://ageof.info/categories/python" class="page__taxonomy-item" rel="tag">python</a><span class="sep">, </span>
     
       
       
-      <a href="http://localhost:4000/categories/tutorial" class="page__taxonomy-item" rel="tag">tutorial</a>
+      <a href="http://ageof.info/categories/tutorial" class="page__taxonomy-item" rel="tag">tutorial</a>
     
     </span>
   </p>
@@ -655,20 +655,20 @@
     <h4 class="page__share-title">Share on</h4>
   
 
-  <a href="https://twitter.com/intent/tweet?via=eliasjmgarcia&text=Tutorial: Setting Up a Twitter Bot Using Python and Tweepy http://localhost:4000/setting-up-twitter-bot-with-python-and-tweepy" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+  <a href="https://twitter.com/intent/tweet?via=eliasjmgarcia&text=Tutorial: Setting Up a Twitter Bot Using Python and Tweepy http://ageof.info/setting-up-twitter-bot-with-python-and-tweepy" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
 
-  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/setting-up-twitter-bot-with-python-and-tweepy" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://ageof.info/setting-up-twitter-bot-with-python-and-tweepy" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
 
-  <a href="https://plus.google.com/share?url=http://localhost:4000/setting-up-twitter-bot-with-python-and-tweepy" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+  <a href="https://plus.google.com/share?url=http://ageof.info/setting-up-twitter-bot-with-python-and-tweepy" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
 
-  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/setting-up-twitter-bot-with-python-and-tweepy" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://ageof.info/setting-up-twitter-bot-with-python-and-tweepy" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
 </section>
 
 
       
   <nav class="pagination">
     
-      <a href="http://localhost:4000/Setting-Up-Python3-On-Linux" class="pagination--pager" title="Tutorial: Setting Up Virtualenv and Virtualenvwrapper on Linux for Python 3.x
+      <a href="http://ageof.info/Setting-Up-Python3-On-Linux" class="pagination--pager" title="Tutorial: Setting Up Virtualenv and Virtualenvwrapper on Linux for Python 3.x
 ">Previous</a>
     
     
@@ -703,7 +703,7 @@
       <li><a href="http://github.com/ejmg"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
     
     
-    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+    <li><a href="http://ageof.info/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
   </ul>
 </div>
 
@@ -711,7 +711,7 @@
       </footer>
     </div>
 
-    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+    <script src="http://ageof.info/assets/js/main.min.js"></script>
 
 
 
