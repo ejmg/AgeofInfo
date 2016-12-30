@@ -246,15 +246,15 @@ This may look like a lot of code but it really isn't. Here's what you are doing:
 2. You then call the `getTimeline()` method you just typed earlier, retrieving the 100 last tweets from your timeline
 3. You then do a list comprehension, taking only the `text` field from each tweet and remaking the list
 4. You then enter a try-catch block which contains the following:
-    A. An if-else block which checks to the size of the list and tweets if it isn't empty
-    B. an tweepy.RateLimitError catch block, which catches the error and tweets to terminal that you've gone over the API limit for the given hour
-    C. A general tweepy.TweepError catch block, which catches a multitude of errors and thus just prints the error type.
+   1. An if-else block which checks to the size of the list and tweets if it isn't empty
+   2. an tweepy.RateLimitError catch block, which catches the error and tweets to terminal that you've gone over the API limit for the given hour
+   3. A general tweepy.TweepError catch block, which catches a multitude of errors and thus just prints the error type.
     
 In case you haven't already noticed, by tweeting "My last tweet is as follows..." before retrieving your last 100 tweets via `getTimeline()`, your last tweet, by default, is that tweet just given ;) Furthermore, I put in the try-catch block to show you the built in error capabilities of tweepy. Rather than just leaving you to your own devices, tweepy has some built in data types that help you figure out what is going on with your code and mitigate a problem if detected. Finally, if you didn't already, you now know what a try-catch block looks like. Congrats!
 
 ## Step 4: Search Twitter and Replying to Tweets
 
-Good job on making it this far, we are almost done. Before I let you go, let's try two more things: searching twitter and replying to tweets. Type of the following, first another method and then the following line into your driver:
+Good job on making it this far, we are almost done. Before I let you go, let's try two more things: searching twitter and replying to tweets. Type up the following, first another method and then the following line into your driver:
 
 ```python
 def searchTweet(api, searchTerm):
@@ -289,7 +289,9 @@ def replyHelloWorld(api, searchResults):
     replyHelloWorld(api, searchResults)
 ```
 
-You probably can read the code by now, but just to be clear: You take a random tweet from the search results list, you then make a string, `tweet`, that is composed of the tweet's message, you retrieve the unique `id` of that tweet, and then you respond to that tweet using the `update_status()` method but with the added argument of `tweetID` just mentioned. What we did then was create our message as desired and then tweet it at a specific tweet rather than just on your plain old timeline. This is also the difference between just @'ing someone out of nowhere and responding to **a specific tweet**, which this function should of done. Some times it doesn't work, however, because when you use search, it doesn't just look at tweets - it also looks at individuals bios and quoted tweets. Try it out yourself and see what I mean!
+You probably can read the code by now, but just to be clear: You take a random tweet from the search results list, you then make a string, `tweet`, that is composed of the tweet's message, you store the unique `id` of the random tweet selected, and then you respond to that random tweet using the `update_status()` method but with the added argument of `tweetID` just mentioned. 
+
+What all of this does is create our message as desired and then tweet it at a specific tweet rather than just on your timeline. This is also the difference between just @'ing someone out of nowhere and responding to **a specific tweet**, which this function should have done. Some times it doesn't work, however, because when you use search, it doesn't just look at tweets - it also looks at individuals bios and quoted tweets. Try it out yourself and see what I mean!
 
 ## Step 5: Experiment!
 
@@ -297,6 +299,6 @@ Congrats, you did it! If everything ran as expected, every time you run the bot,
 
 ![tweets]({{ site.url }}/assets/images/posts/2016-12-28/tweets.png)
 
-Now that you have your bot running, you can experiment. I tried to modularize my code to what extent it could be done, so go ahead and tweak at it and see what happens. Try searching for different terms, looking up different information, see how many tweets you can pull at once, and, hell, figure out what the Twitter API's limit is! ;) 
+Now that you have your bot running, you can experiment. I tried to modularize my code to what extent it could be done, so go ahead and tweak at it and see what happens. Try searching for different terms, looking up different information, see how many tweets you can pull at once, figure out how to reply **only** to tweets based on searches, and, hell, figure out what the Twitter API's limit is! :) 
 
 I hope you enjoyed this guide. If you have any input, edits, or just want to say hi, feel free to email me or @ me on twitter, preferably with your bot!
