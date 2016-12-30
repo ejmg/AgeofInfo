@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin SEO -->
+
+
+
+
+
+
+
+
+
+<title>Tutorial: Setting Up a Twitter Bot Using Python and Tweepy - Age of Info</title>
+
+
+
+
+<meta name="description" content="In my previous post about virtualenv and virtualenvwrapper, I used the Tweepy module in the basic demonstration of how virtual environments work. Building off of that, I want to now create a tutorial for making a basic Twitter bot using Tweepy!">
+
+
+
+
+<meta property="og:locale" content="en">
+<meta property="og:site_name" content="Age of Info">
+<meta property="og:title" content="Tutorial: Setting Up a Twitter Bot Using Python and Tweepy">
+
+
+  <link rel="canonical" href="http://localhost:4000/setting-up-twitter-bot-with-python-and-tweepy">
+  <meta property="og:url" content="http://localhost:4000/setting-up-twitter-bot-with-python-and-tweepy">
+
+
+
+  <meta property="og:description" content="In my previous post about virtualenv and virtualenvwrapper, I used the Tweepy module in the basic demonstration of how virtual environments work. Building off of that, I want to now create a tutorial for making a basic Twitter bot using Tweepy!">
+
+
+
+  <meta name="twitter:site" content="@eliasjmgarcia">
+  <meta name="twitter:title" content="Tutorial: Setting Up a Twitter Bot Using Python and Tweepy">
+  <meta name="twitter:description" content="In my previous post about virtualenv and virtualenvwrapper, I used the Tweepy module in the basic demonstration of how virtual environments work. Building off of that, I want to now create a tutorial for making a basic Twitter bot using Tweepy!">
+  <meta name="twitter:url" content="http://localhost:4000/setting-up-twitter-bot-with-python-and-tweepy">
+
+  
+    <meta name="twitter:card" content="summary">
+    
+  
+
+  
+
+
+
+  
+
+  
+
+
+
+
+
+  <meta property="og:type" content="article">
+  <meta property="article:published_time" content="2016-11-06T14:42:06-06:00">
+
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "Person",
+      "name" : "Elias Garcia",
+      "url" : "http://localhost:4000",
+      "sameAs" : null
+    }
+  </script>
+
+
+
+
+
+
+<!-- end SEO -->
+
+
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Age of Info Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="http://localhost:4000/assets/css/main.css">
+
+<meta http-equiv="cleartype" content="on">
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <button><div class="navicon"></div></button>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--lg"><a href="http://localhost:4000/">Age of Info</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/about/">About</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/assets/pdfs/resume.pdf">Résumé</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/opportunities/">Opportunities</a></li>
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/categories/">Categories</a></li>
+          
+        </ul>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+        <img src="http://localhost:4000/assets/images/bio-photo.jpg#%20path%20of%20avatar%20image,%20e.g.%20%22/assets/images/bio-photo.jpg%22" class="author__avatar" alt="Elias Garcia" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    <h3 class="author__name" itemprop="name">Elias Garcia</h3>
+    
+      <p class="author__bio" itemprop="description">
+        cs and economics student, interested in data analysis and institutions
+      </p>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Truman State</span>
+        </li>
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:elias.jm.garcia@pressmail.ch">
+            <meta itemprop="email" content="elias.jm.garcia@pressmail.ch" />
+            <i class="fa fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+        <li>
+          <a href="https://twitter.com/eliasjmgarcia" itemprop="sameAs">
+            <i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://www.linkedin.com/in/eliasjmgarcia" itemprop="sameAs">
+            <i class="fa fa-fw fa-linkedin-square" aria-hidden="true"></i> LinkedIn
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+        <li>
+          <a href="https://github.com/ejmg" itemprop="sameAs">
+            <i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs">
+      <i class="fa fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Tutorial: Setting Up a Twitter Bot Using Python and Tweepy">
+    <meta itemprop="description" content="In my previous post about virtualenv and virtualenvwrapper, I used the Tweepy module in the basic demonstration of how virtual environments work. Building off of that, I want to now create a tutorial for making a basic Twitter bot using Tweepy!">
+    <meta itemprop="datePublished" content="November 06, 2016">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 class="page__title" itemprop="headline">Tutorial: Setting Up a Twitter Bot Using Python and Tweepy
+</h1>
+          
+            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  15 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        <p>In my previous <a href="http://ageof.info/Setting-Up-Python3-On-Linux">post about virtualenv and virtualenvwrapper</a>, I used the Tweepy module in the basic demonstration of how virtual environments work. Building off of that, I want to now create a tutorial for making a basic Twitter bot using Tweepy!</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>Beyond basic programming and an installation of Python 3.4.2 (or later), the following code should be viable for any system running on it.</p>
+
+<h2 id="the-repo">The Repo</h2>
+
+<p>I made a <a href="https://github.com/ejmg/demoTwitterBot">repo on Github with code that is ready to go</a> with the bot this tutorial will show you how to use. Feel free to fork it, clone it, or just save it directly as a zip file (if you don’t know how to use Git) on your PC.</p>
+
+<h1 id="why-tweepy">Why Tweepy</h1>
+
+<p>Twitter bots, for those who don’t know, are semi to fully automated scripts that engage with Twitter’s REST or streaming Application Programming Interface (API). <a href="https://github.com/tweepy/tweepy">Tweepy</a> is what you would call an “API wrapper,” a set of commands and functions that makes interacting with Twitter’s API a lot easier and more “human friendly.”</p>
+
+<p>Why would you want to do that? Is Twitter’s API really that bad? Well, it’s not that Twitter’s API is bad, but that Twitter has to make an API that’s incredibly flexible and detailed. They want to make a product that can do just about anything via API interaction alone but this comes at the cost of being “easy” to interact with on a more than one-off basis. Here’s an example of how to send a tweet using nothing but the API itself by posting a POST request:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">twitter</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="mf">1.1</span><span class="o">/</span><span class="n">statuses</span><span class="o">/</span><span class="n">update</span><span class="o">.</span><span class="n">json</span><span class="err">?</span><span class="n">status</span><span class="o">=</span><span class="n">Maybe</span><span class="o">%</span><span class="mi">20</span><span class="n">he</span><span class="o">%</span><span class="mi">27</span><span class="n">ll</span><span class="o">%</span><span class="mi">20</span><span class="k">finally</span><span class="o">%</span><span class="mi">20</span><span class="n">find</span><span class="o">%</span><span class="mi">20</span><span class="n">his</span><span class="o">%</span><span class="mi">20</span><span class="n">keys</span><span class="o">.%</span><span class="mi">20</span><span class="o">%</span><span class="mi">23</span><span class="n">peterfalk</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>This post request makes a tweet saying “Maybe he’ll finally find his keys. #peterfalk” to the account it’s authorized for. Now herein lies another problem: this post request isn’t too messy, but this is only after setting up an OAuth2 authentication which verifies your identity and proves you can tweet from an account. An authorization using OAuth2 looks something like this (taken from <a href="https://github.com/joestump/python-oauth2/wiki/Signing-A-Request">python-oauth2’s repo</a>):</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'oauth_version'</span><span class="p">:</span> <span class="s">"1.0"</span><span class="p">,</span>
+    <span class="s">'oauth_nonce'</span><span class="p">:</span> <span class="n">oauth</span><span class="o">.</span><span class="n">generate_nonce</span><span class="p">(),</span>
+    <span class="s">'oauth_timestamp'</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())),</span>
+    <span class="s">'user'</span><span class="p">:</span> <span class="s">'joestump'</span><span class="p">,</span>
+    <span class="s">'photoid'</span><span class="p">:</span> <span class="mi">555555555555</span>
+<span class="p">}</span>
+
+<span class="c"># Set up instances of our Token and Consumer. The Consumer.key and </span>
+<span class="c"># Consumer.secret are given to you by the API provider. The Token.key and</span>
+<span class="c"># Token.secret is given to you after a three-legged authentication.</span>
+<span class="n">token</span> <span class="o">=</span> <span class="n">oauth</span><span class="o">.</span><span class="n">Token</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s">"tok-test-key"</span><span class="p">,</span> <span class="n">secret</span><span class="o">=</span><span class="s">"tok-test-secret"</span><span class="p">)</span>
+<span class="n">consumer</span> <span class="o">=</span> <span class="n">oauth</span><span class="o">.</span><span class="n">Consumer</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s">"con-test-key"</span><span class="p">,</span> <span class="n">secret</span><span class="o">=</span><span class="s">"con-test-secret"</span><span class="p">)</span>
+
+<span class="c"># Set our token/key parameters</span>
+<span class="n">params</span><span class="p">[</span><span class="s">'oauth_token'</span><span class="p">]</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">key</span>
+<span class="n">params</span><span class="p">[</span><span class="s">'oauth_consumer_key'</span><span class="p">]</span> <span class="o">=</span> <span class="n">consumer</span><span class="o">.</span><span class="n">key</span>
+
+<span class="c"># Create our request. Change method, etc. accordingly.</span>
+<span class="n">req</span> <span class="o">=</span> <span class="n">oauth</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="s">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">parameters</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
+
+<span class="c"># Sign the request.</span>
+<span class="n">signature_method</span> <span class="o">=</span> <span class="n">oauth</span><span class="o">.</span><span class="n">SignatureMethod_HMAC_SHA1</span><span class="p">()</span>
+<span class="n">req</span><span class="o">.</span><span class="n">sign_request</span><span class="p">(</span><span class="n">signature_method</span><span class="p">,</span> <span class="n">consumer</span><span class="p">,</span> <span class="n">token</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>Okay, now that’s a bit more nasty. Now, if you want to do something that’s automated, the code above isn’t much of a problem, but that still leaves that post request earlier. Formatting a string https url like that can be problematic, especially if you don’t have your code prepared for each type of media or text character (emojis? different languages?). Better yet, since you are programming (whether veteran or not), you want to be lazy, right? Simply put, why do more work when the work has already been done for you by someone else?</p>
+
+<p>Enter Tweepy: tweepy is a module that makes interacting with Twitter’s API much easier than the stuff above. In fact, it makes it a total breeze and that’s why I’m going to show you how to make a bot using it.</p>
+
+<h1 id="how-to-make-a-twitter-bot">How to Make a Twitter Bot</h1>
+
+<p>First, we have to set up your account (or make a new account, if you want) so that it can give permission to your bot to tweet. If you are okay with using your current account and don’t want to learn what twitter aliases are, skip to step two.</p>
+
+<h2 id="step-0-set-up-an-account">Step 0: Set up an account</h2>
+
+<p>Rather than making a separate email to make a new twitter account, use an <strong>account alias.</strong> This saves you the trouble of having to create another email account (which has its own password), and managing which twitter accounts go with which email, and instead simplifies your bots’ email to a simple alias of yours. Say your email is <code class="highlighter-rouge">example@example.com</code>. To make an alias with Twitter, go to their <a href="https://twitter.com/signup">sign up page</a> like you would normally, and use your email with <code class="highlighter-rouge">+someAliasHere</code> as the email you use as shown:</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/2016-12-28/signup.png" alt="signup" /></p>
+
+<p>From there, setup your twitter account as desired (accounts you want to follow, AVI, bio, settings, etcetera). You should receive a notification in your email account saying you created a twitter account as if it was your first twitter. Congrats!</p>
+
+<h2 id="step-1-give-app-permissions">Step 1: Give App Permissions</h2>
+
+<p>Now that you have an account you can use to run a bot on, you have to authorize it so that the bot can use it. Make sure you are logged in with the account you want to run the bot on and go to <a href="https://apps.twitter.com/">https://apps.twitter.com/</a>. You should immediately see a page saying you don’t have any apps and a button asking if you want to create one. Click it and fill it in with the information you want (none of this really matters for a simple bot). For my demo bot which I ran on my main account, I filled it in as follows:</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/2016-12-28/create-app.png" alt="create-app" /></p>
+
+<p>Accept the user agreement and click okay. The page will immediately change and present you with your app dashboard. Switch over to the tab called <code class="highlighter-rouge">keys and access tokens</code>, where you will find the authorization information your bot will need. This comes in the form of <code class="highlighter-rouge">Consumer Key</code>, <code class="highlighter-rouge">Consumer Secret</code>, <code class="highlighter-rouge">Access Token</code>, and <code class="highlighter-rouge">Access Token Secret</code>. To get the latter two, you will have to click the button at the bottom of the page to generate them (you will not have them by default, don’t worry when you don’t see them). I’ve boxed in red the relevant information below:</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/2016-12-28/auth-info.png" alt="auth-info" /></p>
+
+<p>In case it isn’t obvious by the picture and the warning Twitter gives you, <strong>do not share these keys with anyone</strong>. While the non-secret keys/tokens are technically okay to know publicly, it doesn’t hurt to be on the safe side. Now, keep this page open or save these codes somewhere as you will need them in just a moment. <strong>ALSO</strong>, your access token may have a dash in it - <strong>don’t</strong> delete it. It was intentional and is a part of the token itself. Just copy and paste the info as given.</p>
+
+<h2 id="step-2-hello-world">Step 2: Hello World!</h2>
+
+<p>If you haven’t forked/cloned/zip’d my <a href="https://github.com/ejmg/demoTwitterBot"><code class="highlighter-rouge">demoTwitterBot</code> repo from Github yet</a>, I highly recommend you do. It has code that is ready to deploy so that once you create your <code class="highlighter-rouge">secret.py</code> file in a moment, you are able to run the bot. Even if you plan on going line by line with me in this demo, it would help to have my code just in case something doesn’t work on your end outside of something not being right in your development environment. It also has commentary throughout it to help you understand what is happening so that you don’t ultimately need to use this guide when you go back to look at it!</p>
+
+<h3 id="step-20-install-tweepy">Step 2.0: Install tweepy</h3>
+
+<p>Making sure to use Python 3.4.2 or newer, create a virtualenv (or don’t, but you should) and install tweepy using <code class="highlighter-rouge">pip3 install tweepy</code>. If you are using my repo, you can also just use <code class="highlighter-rouge">pip3 install -r requirements.txt</code>, but since it’s only one module in this case, it really doesn’t make a difference. It should only take a few seconds for the module to install and your terminal should show output confirming its installation:</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/2016-12-28/tweepy.png" alt="tweepy" /></p>
+
+<h3 id="step-21-create-a-secretpy-file">Step 2.1: Create a <code class="highlighter-rouge">secret.py</code> file</h3>
+
+<p>Remember those authorization tokens I told you to save earlier? We’re going to need them in order to twee with your bot. Make a <code class="highlighter-rouge">secret.py</code> file in your working directory and insert <code class="highlighter-rouge">Consumer Key</code> as <code class="highlighter-rouge">CONSUMER_KEY</code>, <code class="highlighter-rouge">Consumer Secret</code> as <code class="highlighter-rouge">CONSUMER_SECRET</code>, and so forth as shown below with X’s in place of the codes given:</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/2016-12-28/secret.png" alt="secret" /></p>
+
+<p>Save the file and move on. If you are using Github (and you didn’t fork/clone my repo and your repo isn’t private) you should make a .gitignore file with <code class="highlighter-rouge">secret.py</code> in it. You wouldn’t want the world to see your tokens!</p>
+
+<h3 id="step-22-create-botpy">Step 2.2: Create <code class="highlighter-rouge">bot.py</code></h3>
+
+<p>Create a <code class="highlighter-rouge">bot.py</code> file and add the following lines of code:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">ACCESS_SECRET</span><span class="p">,</span> <span class="n">ACCESS_TOKEN</span><span class="p">,</span> <span class="n">CONSUMER_KEY</span><span class="p">,</span> <span class="n">CONSUMER_SECRET</span>
+<span class="kn">import</span> <span class="nn">tweepy</span> <span class="kn">as</span> <span class="nn">ty</span>
+<span class="kn">import</span> <span class="nn">random</span>
+</code></pre>
+</div>
+<p>What these lines do is the following:</p>
+
+<ol>
+  <li>Import the variables you declared in <code class="highlighter-rouge">secret.py</code> which we did in order to not reveal their contents in the following code</li>
+  <li>Import the <code class="highlighter-rouge">tweepy</code> module as <code class="highlighter-rouge">ty</code>, an alias that just allows you to write shorter code when calling <code class="highlighter-rouge">tweepy</code> modules</li>
+  <li>Import the random module from Python’s standard library, a pseudo random number generator,  which I’ll explain why in just a moment.</li>
+</ol>
+
+<p>Speaking of #1 and #2, let’s now make a method that authorizes your bot via <code class="highlighter-rouge">tweepy</code>. Write the following code:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">setTwitterAuth</span><span class="p">():</span>
+    <span class="n">auth</span> <span class="o">=</span> <span class="n">ty</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">CONSUMER_KEY</span><span class="p">,</span> <span class="n">CONSUMER_SECRET</span><span class="p">)</span>
+    <span class="n">auth</span><span class="o">.</span><span class="n">set_access_token</span><span class="p">(</span><span class="n">ACCESS_TOKEN</span><span class="p">,</span> <span class="n">ACCESS_SECRET</span><span class="p">)</span>
+    <span class="n">api</span> <span class="o">=</span> <span class="n">ty</span><span class="o">.</span><span class="n">API</span><span class="p">(</span><span class="n">auth</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">api</span>
+</code></pre>
+</div>
+
+<p>What this code does is simple: we create a function with <code class="highlighter-rouge">def</code>, named it <code class="highlighter-rouge">setTwitterAuth()</code>, and tell it to return a single variable <code class="highlighter-rouge">api</code>. From within this function, we use <code class="highlighter-rouge">tweepy</code>’s <code class="highlighter-rouge">OAuthHandler()</code> function to tell Twitter who you are and <code class="highlighter-rouge">set_access_token()</code> to give authorization of your app to use your account with read/write privileges. With this access set, we then use the <code class="highlighter-rouge">auth</code> object created to create an <code class="highlighter-rouge">api</code> object with <code class="highlighter-rouge">API()</code>, which from here on is a key part of your bot as it allows you access to all of the API’s various functions.</p>
+
+<p>We are really close to finishing the first portion of your bot! The next thing we need to do is make a simple function to say Hello World with! While you don’t have to make this a function, I did for demonstration purposes. Type the following:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">tweetHelloWorld</span><span class="p">(</span><span class="n">api</span><span class="p">):</span>
+    <span class="n">api</span><span class="o">.</span><span class="n">update_status</span><span class="p">(</span><span class="s">"This is an automated tweet"</span>
+                      <span class="s">" using a bot! Hello, World! #{}"</span>
+                      <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)))</span>
+</code></pre>
+</div>
+
+<p>What you just did was create another function, <code class="highlighter-rouge">tweetHelloWorld()</code> which takes your <code class="highlighter-rouge">api</code> object as an argument. With it, you perform the most fundamental action with Twitter’s API…you tweeted(!) with the <code class="highlighter-rouge">update_status()</code> method by passing it a string. Notice how I formatted the string to include a random number from 0 to 10000? I did this because you may end up testing this bot a few times and Twitter blocks duplicate tweets from within a certain time window. This will (reasonably) make sure you don’t get a tweet blocked while testing it out. You will see this done with every tweet from here on but feel free to exclude it.</p>
+
+<p>Finally, let’s make your main driver for the script. Type the following:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">api</span> <span class="o">=</span> <span class="n">setTwitterAuth</span><span class="p">()</span>
+    <span class="n">tweetHelloWorld</span><span class="p">(</span><span class="n">api</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>That’s it! Assuming everything is configured right on your end, save your file and tweet using your bot with the following command:</p>
+
+<p><code class="highlighter-rouge">python3 bot.py</code></p>
+
+<p>Test it out!</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/2016-12-28/helloworld.png" alt="helloworld" /></p>
+
+<h2 id="step-3-retrieving-account-information-and-searching-your-tweets">Step 3: Retrieving Account Information and Searching Your Tweets</h2>
+
+<p>Congrats on your first bot tweet, but what else can we do? Turns out there’s a lot, which is why I highly recommend you <a href="read Tweepy's documentation">read Tweepy’s documentation</a>. That said, I’ll introduce you to a few more concepts. Add the following to your bot and run it again:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">api</span> <span class="o">=</span> <span class="n">setTwitterAuth</span><span class="p">()</span>
+    <span class="n">tweetHelloWorld</span><span class="p">(</span><span class="n">api</span><span class="p">)</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">me</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>What we just did is retrieve the <code class="highlighter-rouge">user</code> object associated with the <code class="highlighter-rouge">api</code> object we authenticated, aka your bot’s account. There’s a lot of interesting info stored within this object which is why I had it printed to your terminal, which you should totally check out. Here’s what mine looks like:</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/2016-12-28/user.png" alt="user" /></p>
+
+<p>There are a lot of fields within your <code class="highlighter-rouge">user</code> object, such as your background image url, your last tweet, your bio, your user image url, whether you have 2FA enabled (whoops), and more. For now, let’s checkout your screen_name by entering the following into your driver:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code>    <span class="k">print</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">screen_name</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>This should print out into your terminal your “user handle”, the unique name your account has with the infamous @ symbol with Twitter. Notice, however, that Twitter does not include the actual “@” with your <code class="highlighter-rouge">screen_name</code>. You should keep this in mind for when you try to @ people with your bot (as we will do later).</p>
+
+<p>Now add this into your driver:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code>    <span class="n">api</span><span class="o">.</span><span class="n">update_status</span><span class="p">(</span><span class="s">"I have {} followers and follow {} accounts! #{}"</span>
+                      <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">followers_count</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">friends_count</span><span class="p">,</span>
+                              <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)))</span>
+</code></pre>
+</div>
+
+<p>Your bot should now tweet again with the number of followers you have and the number accounts you follow by using the <code class="highlighter-rouge">followers</code> and <code class="highlighter-rouge">friends_count</code> fields of your <code class="highlighter-rouge">user</code> object. Neat! But let’s go a step further. Let’s use your <code class="highlighter-rouge">user</code> object to pull a tweet from your own timeline. Let’s make another function by typing the following:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">getTimeline</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+    <span class="n">tweets</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">user_timeline</span><span class="p">(</span><span class="n">user</span><span class="o">.</span><span class="n">screen_name</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">tweets</span> <span class="o">=</span> <span class="p">[</span><span class="n">tweet</span> <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets</span><span class="p">]</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">tweets</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">tweets</span>
+</code></pre>
+</div>
+
+<p>Go ahead and add this line to your driver as well:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code>    <span class="n">getTimeline</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>This function is simple: it uses the <code class="highlighter-rouge">user</code> object given to retrieve the last 100 tweets from its timeline using tweepy’s <code class="highlighter-rouge">user_timeline()</code> function. We passed it your <code class="highlighter-rouge">user.screen_name</code> so it knew which timeline to look at and told it to only get 100 tweets using <code class="highlighter-rouge">count=100</code>. The tweets are returned to us in the form of a normal Python list which makes looking at them pretty easy. I have your print one to terminal so you can see the fields it holds. Like a <code class="highlighter-rouge">user</code> object, it contains a lot of information worth looking at if you want to do more work with Twitter’s API. Now that we have a list of your last 100 tweets, let’s do something with them. Create the following function:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">getLastTweet</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">user</span><span class="p">):</span>
+    <span class="n">api</span><span class="o">.</span><span class="n">update_status</span><span class="p">(</span><span class="s">"My last tweet is as"</span>
+                      <span class="s">" follows...#{}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)))</span>
+    <span class="n">tweets</span> <span class="o">=</span> <span class="n">getTimeline</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+    <span class="n">tweets</span> <span class="o">=</span> <span class="p">[</span><span class="n">tweet</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">tweet</span> <span class="ow">in</span> <span class="n">tweets</span><span class="p">]</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tweets</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">api</span><span class="o">.</span><span class="n">update_status</span><span class="p">(</span><span class="s">"This shouldn't be possible...#{}!"</span>
+                              <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">tweet</span> <span class="o">=</span> <span class="n">tweets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">api</span><span class="o">.</span><span class="n">update_status</span><span class="p">(</span><span class="n">tweet</span><span class="p">[:</span><span class="mi">14</span><span class="p">]</span> <span class="o">+</span> <span class="s">"...wait, my last tweet was about"</span>
+                              <span class="s">" tweeting my last tweet, do'oh! #{}"</span><span class="o">.</span>
+                              <span class="n">format</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)))</span>
+    <span class="k">except</span> <span class="n">ty</span><span class="o">.</span><span class="n">RateLimitError</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"You've hit the API limit! Try your bot in about an hour."</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">ty</span><span class="o">.</span><span class="n">TweepError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"You've hit another error. This could be a lot of things, but "</span>
+              <span class="s">"I'll leave that to you to debug. The error is {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+</code></pre>
+</div>
+
+<p>As before, add the following to your driver:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code>    <span class="n">getLastTweet</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">user</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>This may look like a lot of code but it really isn’t. Here’s what you are doing:</p>
+
+<ol>
+  <li>You tweet “My last tweet is as follows…”</li>
+  <li>You then call the <code class="highlighter-rouge">getTimeline()</code> method you just typed earlier, retrieving the 100 last tweets from your timeline</li>
+  <li>You then do a list comprehension, taking only the <code class="highlighter-rouge">text</code> field from each tweet and remaking the list</li>
+  <li>You then enter a try-catch block which contains the following:
+ A. An if-else block which checks to the size of the list and tweets if it isn’t empty
+ B. an tweepy.RateLimitError catch block, which catches the error and tweets to terminal that you’ve gone over the API limit for the given hour
+ C. A general tweepy.TweepError catch block, which catches a multitude of errors and thus just prints the error type.</li>
+</ol>
+
+<p>In case you haven’t already noticed, by tweeting “My last tweet is as follows…” before retrieving your last 100 tweets via <code class="highlighter-rouge">getTimeline()</code>, your last tweet, by default, is that tweet just given ;) Furthermore, I put in the try-catch block to show you the built in error capabilities of tweepy. Rather than just leaving you to your own devices, tweepy has some built in data types that help you figure out what is going on with your code and mitigate a problem if detected. Finally, if you didn’t already, you now know what a try-catch block looks like. Congrats!</p>
+
+<h2 id="step-4-search-twitter-and-replying-to-tweets">Step 4: Search Twitter and Replying to Tweets</h2>
+
+<p>Good job on making it this far, we are almost done. Before I let you go, let’s try two more things: searching twitter and replying to tweets. Type of the following, first another method and then the following line into your driver:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">searchTweet</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">searchTerm</span><span class="p">):</span>
+    <span class="n">searchResults</span> <span class="o">=</span> <span class="p">[</span><span class="n">status</span> <span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">ty</span><span class="o">.</span>
+                     <span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">searchTerm</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">searchResults</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code>    <span class="n">searchResults</span> <span class="o">=</span> <span class="n">searchTweet</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="s">"</span><span class="se">\"</span><span class="s">Hello World </span><span class="se">\"</span><span class="s">"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>What we just did was simple: We searched Twitter for the explicit string “Hello World” and used the built in <code class="highlighter-rouge">Cursor</code> iterator in the tweepy module. Let’s break it down:</p>
+
+<p>First off, notice how I escaped the quotes around “Hello World” so that when you searched it, it wasn’t just <code class="highlighter-rouge">Hello World</code> but instead was <code class="highlighter-rouge">"Hello World"</code>, get it? without using the paired <code class="highlighter-rouge">\"</code>, you would look up all tweets that contained any combination of words so long as it had <code class="highlighter-rouge">hello</code> and <code class="highlighter-rouge">world</code> somewhere in the tweet. By searching <code class="highlighter-rouge">"Hello World"</code> instead, you look for only the tweets which have those two words consecutive somewhere within the tweet.</p>
+
+<p>Secondly, I used a special iterator type made by tweepy’s creators. This iterator, <code class="highlighter-rouge">Cursor</code>, allows you to look up large quantities of tweets once in a cohesive and easily manageable way. While it isn’t obvious with the demonstrated code, if you look more into mining Twitter, you will see the benefits. <a href="http://docs.tweepy.org/en/v3.5.0/index.html">Again, read the tweepy docs for more info</a>! After we retrieve the results using that Cursor, however, I go ahead and turn the iterated tweets into a simple list once again. In fact, I do it all at once with a single list comprehension if you look closer.</p>
+
+<p>Almost done! Now let’s take a random tweet from those search results and tweet back! Type up the following as before, first a method and then a line for your driver:</p>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">replyHelloWorld</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">searchResults</span><span class="p">):</span>
+    <span class="n">randomTweet</span> <span class="o">=</span> <span class="n">searchResults</span><span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">searchResults</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span>
+    <span class="n">tweet</span> <span class="o">=</span> <span class="p">(</span><span class="s">"@{} This is a demo search for 'hello world' with a bot, hello"</span>
+             <span class="s">" world! #{}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">randomTweet</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">screen_name</span><span class="p">,</span>
+                                  <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)))</span>
+    <span class="n">tweetID</span> <span class="o">=</span> <span class="n">randomTweet</span><span class="o">.</span><span class="nb">id</span>
+    <span class="n">api</span><span class="o">.</span><span class="n">update_status</span><span class="p">(</span><span class="n">tweet</span><span class="p">,</span> <span class="n">tweetID</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code>    <span class="n">replyHelloWorld</span><span class="p">(</span><span class="n">api</span><span class="p">,</span> <span class="n">searchResults</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<p>You probably can read the code by now, but just to be clear: You take a random tweet from the search results list, you then make a string, <code class="highlighter-rouge">tweet</code>, that is composed of the tweet’s message, you retrieve the unique <code class="highlighter-rouge">id</code> of that tweet, and then you respond to that tweet using the <code class="highlighter-rouge">update_status()</code> method but with the added argument of <code class="highlighter-rouge">tweetID</code> just mentioned. What we did then was create our message as desired and then tweet it at a specific tweet rather than just on your plain old timeline. This is also the difference between just @’ing someone out of nowhere and responding to <strong>a specific tweet</strong>, which this function should of done. Some times it doesn’t work, however, because when you use search, it doesn’t just look at tweets - it also looks at individuals bios and quoted tweets. Try it out yourself and see what I mean!</p>
+
+<h2 id="step-5-experiment">Step 5: Experiment!</h2>
+
+<p>Congrats, you did it! If everything ran as expected, every time you run the bot, you should get a string of tweets like these:</p>
+
+<p><img src="http://localhost:4000/assets/images/posts/2016-12-28/tweets.png" alt="tweets" /></p>
+
+<p>Now that you have your bot running, you can experiment. I tried to modularize my code to what extent it could be done, so go ahead and tweak at it and see what happens. Try searching for different terms, looking up different information, see how many tweets you can pull at once, and, hell, figure out what the Twitter API’s limit is! ;)</p>
+
+<p>I hope you enjoyed this guide. If you have any input, edits, or just want to say hi, feel free to email me or @ me on twitter, preferably with your bot!</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/tags/bots" class="page__taxonomy-item" rel="tag">bots</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/tweepy" class="page__taxonomy-item" rel="tag">tweepy</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/tags/twitter" class="page__taxonomy-item" rel="tag">twitter</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fa fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="http://localhost:4000/categories/programming" class="page__taxonomy-item" rel="tag">programming</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/categories/python" class="page__taxonomy-item" rel="tag">python</a><span class="sep">, </span>
+    
+      
+      
+      <a href="http://localhost:4000/categories/tutorial" class="page__taxonomy-item" rel="tag">tutorial</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> Updated:</strong> <time datetime="2016-11-06T14:42:06-06:00">November 06, 2016</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?via=eliasjmgarcia&text=Tutorial: Setting Up a Twitter Bot Using Python and Tweepy http://localhost:4000/setting-up-twitter-bot-with-python-and-tweepy" class="btn btn--twitter" title="Share on Twitter"><i class="fa fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/setting-up-twitter-bot-with-python-and-tweepy" class="btn btn--facebook" title="Share on Facebook"><i class="fa fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http://localhost:4000/setting-up-twitter-bot-with-python-and-tweepy" class="btn btn--google-plus" title="Share on Google Plus"><i class="fa fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/setting-up-twitter-bot-with-python-and-tweepy" class="btn btn--linkedin" title="Share on LinkedIn"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="http://localhost:4000/Setting-Up-Python3-On-Linux" class="pagination--pager" title="Tutorial: Setting Up Virtualenv and Virtualenvwrapper on Linux for Python 3.x
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+    
+      <li><a href="https://twitter.com/eliasjmgarcia"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+    
+      <li><a href="http://github.com/ejmg"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    <li><a href="http://localhost:4000/feed.xml"><i class="fa fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2016 Elias Garcia. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+      </footer>
+    </div>
+
+    <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-86976367-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+  </body>
+</html>
