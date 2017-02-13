@@ -112,6 +112,7 @@ author:
 include:
   - .htaccess
   - _pages
+  - .well-known
 exclude:
   - /roughDrafts # don't process my rough drafts, duh
   - "*.sublime-project"

@@ -1,0 +1,54 @@
+==================================================================
+https://keybase.io/ejmg
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://ageof.info
+  * I am ejmg (https://keybase.io/ejmg) on keybase.
+  * I have a public key ASCoBbTOgBbATFzQQ5kkAn7dw45Ufp-Xp5SLJBAclFvUOQo
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0120a805b4ce8016c04c5cd0439924027eddc38e547e9f97a7948b24101c945bd4390a",
+            "host": "keybase.io",
+            "kid": "0120a805b4ce8016c04c5cd0439924027eddc38e547e9f97a7948b24101c945bd4390a",
+            "uid": "896c3a6eb31015ab73d25776a1d03a19",
+            "username": "ejmg"
+        },
+        "service": {
+            "hostname": "ageof.info",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "client": {
+        "name": "keybase.io go client",
+        "version": "1.0.18"
+    },
+    "ctime": 1487017649,
+    "expire_in": 504576000,
+    "merkle_root": {
+        "ctime": 1487017616,
+        "hash": "9907f21e5fbc5a33beefe18d3520351232c9c486ea2d66b2344ada5fc95a4cf076ecdf6fdb914fa6d6ba1199a02b878eb1cb52d964bfc8e7a25c98d25577ee81",
+        "seqno": 885784
+    },
+    "prev": "8ca7e17b08a337043577f9acb764699d4a6515230e47aa3d85ec4c6c7f561f20",
+    "seqno": 8,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgqAW0zoAWwExc0EOZJAJ+3cOOVH6fl6eUiyQQHJRb1DkKp3BheWxvYWTFAu17ImJvZHkiOnsia2V5Ijp7ImVsZGVzdF9raWQiOiIwMTIwYTgwNWI0Y2U4MDE2YzA0YzVjZDA0Mzk5MjQwMjdlZGRjMzhlNTQ3ZTlmOTdhNzk0OGIyNDEwMWM5NDViZDQzOTBhIiwiaG9zdCI6ImtleWJhc2UuaW8iLCJraWQiOiIwMTIwYTgwNWI0Y2U4MDE2YzA0YzVjZDA0Mzk5MjQwMjdlZGRjMzhlNTQ3ZTlmOTdhNzk0OGIyNDEwMWM5NDViZDQzOTBhIiwidWlkIjoiODk2YzNhNmViMzEwMTVhYjczZDI1Nzc2YTFkMDNhMTkiLCJ1c2VybmFtZSI6ImVqbWcifSwic2VydmljZSI6eyJob3N0bmFtZSI6ImFnZW9mLmluZm8iLCJwcm90b2NvbCI6Imh0dHA6In0sInR5cGUiOiJ3ZWJfc2VydmljZV9iaW5kaW5nIiwidmVyc2lvbiI6MX0sImNsaWVudCI6eyJuYW1lIjoia2V5YmFzZS5pbyBnbyBjbGllbnQiLCJ2ZXJzaW9uIjoiMS4wLjE4In0sImN0aW1lIjoxNDg3MDE3NjQ5LCJleHBpcmVfaW4iOjUwNDU3NjAwMCwibWVya2xlX3Jvb3QiOnsiY3RpbWUiOjE0ODcwMTc2MTYsImhhc2giOiI5OTA3ZjIxZTVmYmM1YTMzYmVlZmUxOGQzNTIwMzUxMjMyYzljNDg2ZWEyZDY2YjIzNDRhZGE1ZmM5NWE0Y2YwNzZlY2RmNmZkYjkxNGZhNmQ2YmExMTk5YTAyYjg3OGViMWNiNTJkOTY0YmZjOGU3YTI1Yzk4ZDI1NTc3ZWU4MSIsInNlcW5vIjo4ODU3ODR9LCJwcmV2IjoiOGNhN2UxN2IwOGEzMzcwNDM1NzdmOWFjYjc2NDY5OWQ0YTY1MTUyMzBlNDdhYTNkODVlYzRjNmM3ZjU2MWYyMCIsInNlcW5vIjo4LCJ0YWciOiJzaWduYXR1cmUifaNzaWfEQAjJ45cwXhT0CJNgMs1VwwDYEYDcgQ3SY5UWPNUuHfeBkikz4ws/nLJZRN9UPK1DBAO3eB/jgBueQUdUtJuBUgOoc2lnX3R5cGUgpGhhc2iCpHR5cGUIpXZhbHVlxCDr7NgSNxql935TYQytw2DnWUKlyHjpZX7nSDFkcyiC3qN0YWfNAgKndmVyc2lvbgE=
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/ejmg
+
+==================================================================
