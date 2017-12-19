@@ -1,13 +1,15 @@
 # main links
 main:
-  - title: "About"
+  - title: "about"
     url: /about/
-  - title: "Résumé"
+  - title: "resume"
     url: /assets/pdfs/resume.pdf
-  - title: "Opportunities"
+  - title: "opportunities"
     url: /opportunities/
-  - title: "Categories"
+  - title: "archive"
     url: /categories/
+  - title: "new-archives"
+    url: /categories-test/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"

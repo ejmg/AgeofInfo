@@ -8,14 +8,14 @@
 # Site Settings
 theme                    : minimal-mistakes-jekyll
 locale                   : "en"
-title                    : "Age of Info"
+title                    : "a̶͟g̵̡͝e͜͞ ̡́ò͝f ̴́.͏ ̶i̢̕n̶͏͠f̶̧o͢͢"
 title_separator          : "-"
 name                     : "Elias Garcia"
 description              : "the professional blog of Elias Garcia for a Brave New World"
 url                      : http://ageof.info # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : ejmg/ageof-blog # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
-teaser                   : /assets/images/bio-photo.jpg # path of fallback teaser image, e.g. "/assets/images/500x300.png"
+teaser                   : /assets/images/teaser.png # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
@@ -47,6 +47,7 @@ staticman:
         format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 atom_feed:
   path                   : # blank (default) uses feed.xml
+search                   : true
 
 # SEO Related
 google_site_verification :
@@ -78,10 +79,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "Elias Garcia"
+  name             : "elias garcia"
   avatar           : /assets/images/bio-photo.jpg# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "cs and economics student, interested in data analysis and institutions"
-  location         : "Truman State"
+  bio              : "student, interested in institutions, computation, and uncertainty"
+  location         : "library of babel"
   email            : elias.jm.garcia@pressmail.ch
   uri              : 
   bitbucket        :
@@ -181,7 +182,7 @@ timezone: # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
-gems:
+plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
