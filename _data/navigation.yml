@@ -6,10 +6,8 @@ main:
     url: /assets/pdfs/resume.pdf
   - title: "opportunities"
     url: /opportunities/
-  - title: "archive"
+  - title: "archives"
     url: /categories/
-  - title: "new-archives"
-    url: /categories-test/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"

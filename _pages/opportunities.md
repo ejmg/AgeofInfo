@@ -2,7 +2,7 @@
 layout: single
 author_profile: true
 permalink: /opportunities/
-title: "Opportunities for Students"
+title: "opportunities for students"
 ---
 
 Collection of links to various opportunities within either tech or economics, particularly those
