@@ -11,3 +11,4 @@ Gemfile.lock
 node_modules
 npm-debug.log*
 .sass-cache/
+roughDrafts/
