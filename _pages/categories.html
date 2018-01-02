@@ -1,0 +1,25 @@
+---
+layout: archive
+permalink: /categories/
+title: "categories"
+author_profile: true
+---
+
+{% include base_path %}
+{% include group-by-array collection=site.posts field="categories" %}
+
+{% assign lastletter = "" %}
+
+{% for category in group_names %}
+
+{% assign tmpletter = category | slice: 0 | upcase %}
+
+{% if tmpletter != lastletter %}
+<h1>{{ tmpletter }}</h1>
+{% assign lastletter = category | slice: 0 | upcase %}
+{% endif %}
+
+{% assign lowercase_cat = category | downcase %}
+{% assign posts = group_items[forloop.index0] %}
+<h2 id="{{ category | slugify }}" class="archive__subtitle"> <a href="{{ site.url}}/categories/{{ lowercase_cat | replace: " ", "-"}}"> {{ category }}</a> </h2>
+{% endfor %}
